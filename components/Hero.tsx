@@ -54,7 +54,10 @@ export const Hero: React.FC = () => {
           </p>
           
           <div className="pt-4 flex flex-col sm:flex-row gap-4">
-            <Button className="text-sm px-10 py-5 bg-gray-900 text-white hover:bg-accent hover:text-white transition-all duration-300 shadow-2xl uppercase tracking-widest">
+            <Button 
+              onClick={() => window.open('https://wa.me/556292746409?text=Ol%C3%A1%20Daniel!%20Vi%20seu%20site%20e%20quero%20agendar%20uma%20consultoria%20personalizada%20de%20investimentos.', '_blank')}
+              className="text-sm px-10 py-5 bg-gray-900 text-white hover:bg-accent hover:text-white transition-all duration-300 shadow-2xl uppercase tracking-widest"
+            >
               Iniciar Consultoria <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
             <button 

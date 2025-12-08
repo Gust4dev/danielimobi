@@ -1,39 +1,67 @@
 import React, { useState } from 'react';
 import { Lightbox } from './Lightbox';
-import { Maximize2, MoveDiagonal } from 'lucide-react';
+import { Maximize2, PlayCircle } from 'lucide-react';
 
 interface ProjectGalleryProps {
   images: string[];
 }
 
+const isVideo = (url: string) => url.toLowerCase().endsWith('.mp4');
+
 export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ images }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // We show up to 5 images in the grid
-  // 0, 1: Large (50% each)
-  // 2, 3, 4: Small (33% each)
-  const displayImages = images.slice(0, 5);
+  // We show up to 5 items in the grid
+  const displayItems = images.slice(0, 5);
 
   const openLightbox = (index: number) => {
     setCurrentIndex(index);
     setIsOpen(true);
   };
 
+  const renderItem = (url: string, index: number, className: string = "") => {
+    const isVid = isVideo(url);
+    
+    return (
+      <div 
+        key={index} 
+        className={`relative overflow-hidden cursor-pointer group rounded-sm ${className}`} 
+        onClick={() => openLightbox(index)}
+      >
+          {isVid ? (
+             <div className="w-full h-full bg-black relative">
+                 <video 
+                   src={`${url}#t=0.1`} 
+                   className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity" 
+                   preload="metadata"
+                 />
+                 <div className="absolute inset-0 flex items-center justify-center">
+                    <PlayCircle size={48} className="text-white opacity-90 group-hover:scale-110 transition-transform" />
+                 </div>
+             </div>
+          ) : (
+             <img 
+               src={url} 
+               alt={`Gallery ${index}`} 
+               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+             />
+          )}
+
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors pointer-events-none" />
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="flex flex-col gap-2">
-          {/* Top Row: 2 Large Images */}
+          {/* Top Row: 2 Large Items */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 h-[400px]">
-             {images.slice(0, 2).map((img, idx) => (
-                <div key={idx} className="relative overflow-hidden cursor-pointer group rounded-sm" onClick={() => openLightbox(idx)}>
-                    <img src={img} alt={`Gallery ${idx}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-                </div>
-             ))}
+             {images.slice(0, 2).map((img, idx) => renderItem(img, idx))}
           </div>
 
-          {/* Bottom Row: 3 Small Images */}
+          {/* Bottom Row: 3 Small Items */}
           <div className="grid grid-cols-3 gap-2 h-[200px]">
               {images.slice(2, 5).map((img, idx) => {
                   const actualIndex = idx + 2;
@@ -43,25 +71,26 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ images }) => {
                   return (
                     <div 
                         key={actualIndex} 
-                        className="relative overflow-hidden cursor-pointer group rounded-sm"
-                        onClick={() => openLightbox(actualIndex)}
+                        className="relative h-full"
                     >
-                        <img src={img} alt={`Gallery ${actualIndex}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                        {renderItem(img, actualIndex, "h-full w-full")}
                         
-                        {/* Overlay for the last image if there are more */}
+                        {/* Overlay for the last item if there are more */}
                         {isLast && remainingCount > 0 && (
-                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white backdrop-blur-[2px] group-hover:bg-black/60 transition-colors">
+                             <div 
+                                className="absolute inset-0 bg-black/50 flex items-center justify-center text-white backdrop-blur-[2px] group-hover:bg-black/60 transition-colors cursor-pointer z-10"
+                                onClick={(e) => { e.stopPropagation(); openLightbox(actualIndex); }}
+                             >
                                 <div className="text-center">
                                     <span className="text-2xl font-bold block">+{remainingCount}</span>
-                                    <span className="text-xs uppercase tracking-widest">Fotos</span>
+                                    <span className="text-xs uppercase tracking-widest">Mídias</span>
                                 </div>
                              </div>
                         )}
                         
-                        {/* If last image but no remaining, maybe show expand icon */}
+                        {/* If last item but no remaining, icon hint */}
                         {isLast && remainingCount === 0 && (
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                                 <span className="bg-white/90 p-3 rounded-full text-black shadow-lg">
                                     <Maximize2 size={20} />
                                 </span>

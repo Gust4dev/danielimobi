@@ -25,7 +25,7 @@ export const PROPERTIES: Property[] = [
     price: "R$ 430.000",
     features: "Ótimo para Renda • Prático",
     type: 'invest',
-    image: "/images/Vendas/opcao3/opcao3-13.jpeg",
+    image: "/images/Vendas/opcao3/opcao3-18.jpeg",
     tag: "OPORTUNIDADE"
   }
 ];
@@ -59,7 +59,7 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
     location: 'Centro - Localização Estratégica',
     description: 'Um empreendimento vibrante, localizado no coração da cidade. O HIT foi desenhado para quem busca praticidade, modernidade e um estilo de vida dinâmico.',
     fullDescription: `O HIT é a materialização do estilo de vida contemporâneo. Localizado estrategicamente no centro da cidade, este empreendimento foi concebido para conectar você ao que realmente importa. 
-
+    
     Com um design arrojado e funcional, o HIT oferece apartamentos compactos de alto padrão, ideais para investidores que buscam alta rentabilidade em aluguéis de curta temporada (Airbnb) ou para quem deseja viver com praticidade e sofisticação.
     
     A infraestrutura conta com áreas comuns entregues equipadas e decoradas, rooftop com vista panorâmica, coworking, academia moderna e lavanderia compartilhada.`,
@@ -167,6 +167,9 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
       '/images/Vendas/opcao1/opcao1-3.jpeg',
       '/images/Vendas/opcao1/opcao1-4.jpeg',
       '/images/Vendas/opcao1/opcao1-5.jpeg',
+      '/images/Vendas/opcao1/opcao-1.mp4',
+      '/images/Vendas/opcao1/opcao1-1.mp4',
+      '/images/Vendas/opcao1/opcao1-2.mp4',
     ]
   },
   'OPCAO2': {
@@ -224,18 +227,30 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
       'Perto de Tudos',
       'Portaria 24h'
     ],
-    mainImage: '/images/Vendas/opcao3/opcao3-13.jpeg',
+    mainImage: '/images/Vendas/opcao3/opcao3-18.jpeg',
     gallery: [
       '/images/Vendas/opcao3/opcao3-1.jpeg',
       '/images/Vendas/opcao3/opcao3-2.jpeg',
       '/images/Vendas/opcao3/opcao3-3.jpeg',
       '/images/Vendas/opcao3/opcao3-4.jpeg',
       '/images/Vendas/opcao3/opcao3-5.jpeg',
+      '/images/Vendas/opcao3/opcao3-6.jpeg',
+      '/images/Vendas/opcao3/opcao3-7.jpeg',
+      '/images/Vendas/opcao3/opcao3-8.jpeg',
+      '/images/Vendas/opcao3/opcao3-9.jpeg',
       '/images/Vendas/opcao3/opcao3-10.jpeg',
       '/images/Vendas/opcao3/opcao3-11.jpeg',
       '/images/Vendas/opcao3/opcao3-12.jpeg',
       '/images/Vendas/opcao3/opcao3-13.jpeg',
       '/images/Vendas/opcao3/opcao3-14.jpeg',
+      '/images/Vendas/opcao3/opcao3-15.jpeg',
+      '/images/Vendas/opcao3/opcao3-16.jpeg',
+      '/images/Vendas/opcao3/opcao3-17.jpeg',
+      '/images/Vendas/opcao3/opcao3-18.jpeg',
+      '/images/Vendas/opcao3/opcao3-19.jpeg',
+      '/images/Vendas/opcao3/opcao3-20.jpeg',
+      '/images/Vendas/opcao3/opcao3-21.jpeg',
+      '/images/Vendas/opcao3/opcao3-22.jpeg',
     ]
   }
 };

@@ -10,6 +10,8 @@ interface LightboxProps {
   onNavigate: (newIndex: number) => void;
 }
 
+const isVideo = (url: string) => url.toLowerCase().endsWith('.mp4');
+
 export const Lightbox: React.FC<LightboxProps> = ({ 
   images, 
   selectedIndex, 
@@ -50,6 +52,9 @@ export const Lightbox: React.FC<LightboxProps> = ({
 
   if (!isOpen) return null;
 
+  const currentUrl = images[selectedIndex];
+  const isCurrentVideo = isVideo(currentUrl);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -58,6 +63,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center"
+          onClick={onClose} // Close on background click
         >
           {/* Close Button */}
           <button 
@@ -83,34 +89,50 @@ export const Lightbox: React.FC<LightboxProps> = ({
             <ChevronRight size={48} className="group-hover:scale-110 transition-transform" />
           </button>
 
-          {/* Image Container */}
-          <div className="relative w-full h-full max-w-7xl mx-auto flex items-center justify-center p-4">
+          {/* Media Container */}
+          <div 
+             className="relative w-full h-full max-w-7xl mx-auto flex items-center justify-center p-4"
+             onClick={(e) => e.stopPropagation()} // Prevent close when clicking content
+          >
              {/* Note: We use a key to trigger animation on index change */}
-             <motion.img
+             <motion.div
                 key={selectedIndex}
-                src={images[selectedIndex]}
-                alt={`Gallery ${selectedIndex}`}
-                className="max-h-[85vh] max-w-full object-contain select-none"
+                className="w-full h-full flex items-center justify-center"
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.7} // More rubbery feel
+                dragElastic={0.7}
                 onDragEnd={(e, { offset, velocity }) => {
                   const swipe = swipePower(offset.x, velocity.x);
-
                   if (swipe < -swipeConfidenceThreshold) {
                     paginate(1);
                   } else if (swipe > swipeConfidenceThreshold) {
                     paginate(-1);
                   }
                 }}
-             />
+             >
+                 {isCurrentVideo ? (
+                    <video 
+                        src={currentUrl} 
+                        controls 
+                        autoPlay 
+                        className="max-h-[85vh] max-w-full outline-none shadow-2xl"
+                    />
+                 ) : (
+                    <img
+                        src={currentUrl}
+                        alt={`Gallery ${selectedIndex}`}
+                        className="max-h-[85vh] max-w-full object-contain select-none shadow-2xl"
+                        draggable={false}
+                    />
+                 )}
+             </motion.div>
              
              {/* Counter */}
-             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 font-mono text-sm">
+             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 font-mono text-sm pointer-events-none">
                 {selectedIndex + 1} / {images.length}
              </div>
           </div>

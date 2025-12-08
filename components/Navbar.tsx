@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -11,19 +14,34 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // MUDANÇA: Substituído 'Sobre' por 'Relatos'
   const navLinks = [
     { name: 'Lançamentos', href: '#lancamentos' },
     { name: 'Acervo', href: '#venda' },
-    { name: 'Relatos', href: '#depoimentos' }, // Link direto para a prova social
+    { name: 'Relatos', href: '#depoimentos' },
   ];
 
-  const scrollTo = (id: string) => {
-    const element = document.querySelector(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMenuOpen(false);
+  const handleNavigation = (href: string) => {
+    setMenuOpen(false);
+    
+    // If we are already on home, just scroll
+    if (location.pathname === '/') {
+        const element = document.querySelector(href);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    } else {
+        // If not on home, navigate to home with the hash
+        navigate(`/${href}`);
     }
+  };
+
+  const handleLogoClick = () => {
+      setMenuOpen(false);
+      if (location.pathname === '/') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+          navigate('/');
+      }
   };
 
   return (
@@ -33,10 +51,11 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         
         {/* LOGO */}
-        <div className="font-serif text-2xl font-bold tracking-tighter text-primary z-50 cursor-pointer">
-          <a href="/">
+        <div 
+            className="font-serif text-2xl font-bold tracking-tighter text-primary z-50 cursor-pointer"
+            onClick={handleLogoClick}
+        >
             <img src="/images/logo.png" alt="Daniel Feitosa" className="h-10 w-auto object-contain" />
-          </a>
         </div>
 
         {/* MENU DESKTOP */}
@@ -44,7 +63,7 @@ export const Navbar: React.FC = () => {
           {navLinks.map((link) => (
             <button 
               key={link.name} 
-              onClick={() => scrollTo(link.href)}
+              onClick={() => handleNavigation(link.href)}
               className="text-[11px] font-bold text-gray-600 hover:text-accent transition-colors uppercase tracking-[0.2em] relative group"
             >
               {link.name}
@@ -53,7 +72,7 @@ export const Navbar: React.FC = () => {
           ))}
           
           <button 
-            onClick={() => scrollTo('#footer')}
+            onClick={() => window.open('https://wa.me/556292746409?text=Ol%C3%A1%20Daniel!%20Acessei%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20sua%20consultoria%20imobili%C3%A1ria.', '_blank')}
             className="px-6 py-3 border border-accent text-accent text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-accent hover:text-white transition-all duration-500"
           >
             Fale Comigo
@@ -76,14 +95,14 @@ export const Navbar: React.FC = () => {
            {navLinks.map((link) => (
             <button 
               key={link.name} 
-              onClick={() => scrollTo(link.href)}
+              onClick={() => handleNavigation(link.href)}
               className="text-xl font-serif text-primary hover:text-accent"
             >
               {link.name}
             </button>
           ))}
           <button 
-            onClick={() => scrollTo('#footer')}
+            onClick={() => window.open('https://wa.me/556292746409?text=Ol%C3%A1%20Daniel!%20Acessei%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20sua%20consultoria%20imobili%C3%A1ria.', '_blank')}
             className="mt-8 px-10 py-4 bg-primary text-white text-xs font-bold uppercase tracking-widest"
           >
             Agendar Reunião

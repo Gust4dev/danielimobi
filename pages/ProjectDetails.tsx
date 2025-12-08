@@ -95,13 +95,19 @@ export const ProjectDetails: React.FC = () => {
 
                   <div className="mt-8 space-y-4">
                       <Button 
-                        onClick={() => window.open(WHATSAPP_LINK, '_blank')}
+                        onClick={() => {
+                            const message = `Olá! Estou vendo a página do ${project.title} e tenho interesse real. Gostaria de agendar uma visita/reunião.`;
+                            window.open(`https://wa.me/556292746409?text=${encodeURIComponent(message)}`, '_blank');
+                        }}
                         className="w-full bg-gray-900 text-white hover:bg-yellow-600 py-4 uppercase font-bold text-sm tracking-widest"
                       >
                           Agendar Visita
                       </Button>
                       <Button 
-                        onClick={() => window.open(WHATSAPP_LINK, '_blank')}
+                        onClick={() => {
+                            const message = `Oi Daniel. Gostaria de receber o PDF de apresentação do ${project.title} que vi no site.`;
+                            window.open(`https://wa.me/556292746409?text=${encodeURIComponent(message)}`, '_blank');
+                        }}
                         className="w-full bg-white text-gray-900 border border-gray-300 hover:bg-gray-50 py-4 uppercase font-bold text-sm tracking-widest"
                       >
                           Baixar Apresentação

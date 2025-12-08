@@ -15,7 +15,10 @@ export const Footer: React.FC = () => {
             Entre em contato para agendar uma reunião exclusiva.
           </p>
           <div className="flex justify-center">
-             <Button className="gap-3 shadow-xl hover:shadow-2xl px-8 py-4 text-base">
+             <Button 
+               onClick={() => window.open('https://wa.me/556292746409?text=Ol%C3%A1%20Daniel!%20Acessei%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20sua%20consultoria%20imobili%C3%A1ria.', '_blank')}
+               className="gap-3 shadow-xl hover:shadow-2xl px-8 py-4 text-base"
+             >
                 <MessageCircle size={20} />
                 INICIAR CONVERSA NO WHATSAPP
              </Button>
