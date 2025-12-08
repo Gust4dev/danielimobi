@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
             <p>CRECI: 123456 | Anápolis - GO</p>
           </div>
           <div className="font-serif font-bold text-lg text-primary">
-            BRAND<span className="text-accent">.</span>
+            <img src="/images/logo.png" alt="Brand Logo" className="h-10 w-auto object-contain" />
           </div>
           <div className="text-center md:text-right">
              <p>contato@exemplo.com.br</p>

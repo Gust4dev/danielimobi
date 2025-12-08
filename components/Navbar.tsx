@@ -25,7 +25,9 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         
         <div className="font-serif text-2xl font-bold tracking-tighter text-primary">
-          BRAND<span className="text-accent">.</span>
+          <a href="/">
+            <img src="/images/logo.png" alt="Brand Logo" className="h-12 w-auto object-contain" />
+          </a>
         </div>
 
         <div className="hidden md:flex items-center gap-8">

@@ -14,7 +14,7 @@ export interface Testimonial {
   author: string;
   role: string;
 }
-export interface FeaturedProject {
+export interface ProjectDetailsType {
   id: string;
   title: string;
   subtitle: string;
@@ -25,4 +25,8 @@ export interface FeaturedProject {
   features: string[];
   mainImage: string;
   gallery: string[];
+  price?: string; // Added optional price
 }
+
+// Deprecated alias to maintain backward compatibility if needed, or just replace usages
+export type FeaturedProject = ProjectDetailsType;

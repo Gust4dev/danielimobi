@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Consultoria Imobiliária de Alto Padrão</title>
+    <link rel="icon" type="image/png" href="/images/logo.png" />
     
     <!-- Fonts: Playfair Display (Serif/Luxury) and Lato (Sans/Clean) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,13 +37,16 @@
       }
     </script>
     <style>
-      /* Smooth scrolling for anchor links */
+      /* Smooth scrolling */
       html {
         scroll-behavior: smooth;
       }
       body {
-        background-color: #F9FAFB;
+        /* MUDANÇA: Sai o #ffffff, entra o #FAFAFA (Off-White) */
+        background-color: #FAFAFA; 
         color: #1F2937;
+        /* Truque de Luxo: Um leve ruído para dar textura de papel */
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
       }
     </style>
   <script type="importmap">

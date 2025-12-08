@@ -1,32 +1,32 @@
-import { Property, Testimonial, FeaturedProject } from './types';
+import { Property, Testimonial, ProjectDetailsType } from './types';
 
 export const PROPERTIES: Property[] = [
   {
-    id: 1,
-    title: "Mansão Jundiaí",
-    price: "R$ 2.500.000",
-    features: "4 Suítes • 450m² • Piscina Aquecida",
+    id: 1, // mapped to 'opcao1'
+    title: "Residência Alto Padrão",
+    price: "R$ 2.250.000",
+    features: "Alto Luxo • Acabamento Premium",
     type: 'live',
-    image: "https://images.unsplash.com/photo-1600596542815-6ad4c7213aa?q=80&w=2075&auto=format&fit=crop",
-    tag: "OPORTUNIDADE"
+    image: "/images/Vendas/opcao1/opcao1-2.jpeg",
+    tag: "EXCLUSIVO"
   },
   {
-    id: 2,
-    title: "Lote Alphaville",
-    price: "R$ 850.000",
-    features: "Esquina • 600m² • Vista Livre",
+    id: 2, // mapped to 'opcao2'
+    title: "Oportunidade Premium",
+    price: "R$ 2.000.000",
+    features: "Localização Privilegiada • Amplo Espaço",
     type: 'invest',
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2664&auto=format&fit=crop",
+    image: "/images/Vendas/opcao2/opcao2-7.jpeg",
     tag: "INVESTIMENTO"
   },
   {
-    id: 3,
-    title: "Penthouse Centro",
-    price: "Sob Consulta",
-    features: "3 Suítes • Vista 360º • Acabamento Mármore",
-    type: 'live',
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
-    tag: "EXCLUSIVO"
+    id: 3, // mapped to 'opcao3'
+    title: "Apartamento Compacto",
+    price: "R$ 430.000",
+    features: "Ótimo para Renda • Prático",
+    type: 'invest',
+    image: "/images/Vendas/opcao3/opcao3-13.jpeg",
+    tag: "OPORTUNIDADE"
   }
 ];
 
@@ -51,7 +51,7 @@ export const TESTIMONIALS: Testimonial[] = [
   }
 ];
 
-export const FEATURED_PROJECTS: Record<string, FeaturedProject> = {
+export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
   'HIT': {
     id: 'HIT',
     title: 'HIT',
@@ -129,6 +129,111 @@ export const FEATURED_PROJECTS: Record<string, FeaturedProject> = {
       '/images/DOMUS/Domus (13).jpeg',
       '/images/DOMUS/Domus (14).jpeg',
       '/images/DOMUS/Domus (1).jpeg',
+    ]
+  }
+};
+
+export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
+  'OPCAO1': {
+    id: 'opcao1',
+    title: 'Residência Premium',
+    subtitle: 'R$ 2.250.000',
+    location: 'Localização Exclusiva',
+    description: 'Uma oportunidade única para quem busca conforto e exclusividade.',
+    fullDescription: `Esta residência de alto padrão oferece o que há de melhor em conforto e sofisticação.
+    
+    Com acabamentos de primeira linha e um projeto arquitetônico moderno, cada espaço foi pensado para proporcionar bem-estar.
+    
+    Agende uma visita e encante-se com cada detalhe desta propriedade exclusiva.`,
+    price: 'R$ 2.250.000',
+    specs: [
+      { label: 'Valor', value: 'R$ 2.250.000' },
+      { label: 'Tipo', value: 'Residencial' },
+      { label: 'Padrão', value: 'Alto Luxo' }
+    ],
+    features: [
+      'Acabamento Premium',
+      'Localização Privilegiada',
+      'Ampla Área de Lazer',
+      'Segurança 24h',
+      'Design Moderno'
+    ],
+    mainImage: '/images/Vendas/opcao1/opcao1-2.jpeg',
+    gallery: [
+      '/images/Vendas/opcao1/opcao1-1.jpeg',
+      '/images/Vendas/opcao1/opcao1-2.jpeg',
+      '/images/Vendas/opcao1/opcao1-3.jpeg',
+      '/images/Vendas/opcao1/opcao1-4.jpeg',
+      '/images/Vendas/opcao1/opcao1-5.jpeg',
+    ]
+  },
+  'OPCAO2': {
+    id: 'opcao2',
+    title: 'Oportunidade de Investimento',
+    subtitle: 'R$ 2.000.000',
+    location: 'Região Valorizada',
+    description: 'Excelente opção para quem busca valorização e segurança no investimento.',
+    fullDescription: `Imóvel situado em uma das regiões mais valorizadas da cidade.
+    
+    Ideal tanto para moradia quanto para investimento, com alto potencial de rentabilidade.
+    
+    Não perca essa oportunidade de realizar um grande negócio.`,
+    price: 'R$ 2.000.000',
+    specs: [
+      { label: 'Valor', value: 'R$ 2.000.000' },
+      { label: 'Tipo', value: 'Investimento' },
+      { label: 'Potencial', value: 'Alta Valorização' }
+    ],
+    features: [
+      'Localização Estratégica',
+      'Documentação OK',
+      'Pronto para Construir/Morar',
+      'Bairro Planejado'
+    ],
+    mainImage: '/images/Vendas/opcao2/opcao2-7.jpeg',
+    gallery: [
+      '/images/Vendas/opcao2/opcao2-1.jpeg',
+      '/images/Vendas/opcao2/opcao2-6.jpeg',
+      '/images/Vendas/opcao2/opcao2-7.jpeg',
+      '/images/Vendas/opcao2/opcao2-8.jpeg',
+      '/images/Vendas/opcao2/opcao2-9.jpeg',
+    ]
+  },
+  'OPCAO3': {
+    id: 'opcao3',
+    title: 'Smart Investment',
+    subtitle: 'R$ 430.000',
+    location: 'Centro Expandido',
+    description: 'A porta de entrada para o mercado imobiliário com segurança.',
+    fullDescription: `Unidade compacta e funcional, perfeita para rentabilidade com locação ou primeira moradia.
+    
+    Localizado próximo a serviços essenciais e com fácil acesso às principais vias.
+    
+    Investimento inteligente com baixo custo de manutenção.`,
+    price: 'R$ 430.000',
+    specs: [
+      { label: 'Valor', value: 'R$ 430.000' },
+      { label: 'Tipo', value: 'Compacto' },
+      { label: 'Rentabilidade', value: 'Imediata' }
+    ],
+    features: [
+      'Baixo Condomínio',
+      'Alta Procura',
+      'Perto de Tudos',
+      'Portaria 24h'
+    ],
+    mainImage: '/images/Vendas/opcao3/opcao3-13.jpeg',
+    gallery: [
+      '/images/Vendas/opcao3/opcao3-1.jpeg',
+      '/images/Vendas/opcao3/opcao3-2.jpeg',
+      '/images/Vendas/opcao3/opcao3-3.jpeg',
+      '/images/Vendas/opcao3/opcao3-4.jpeg',
+      '/images/Vendas/opcao3/opcao3-5.jpeg',
+      '/images/Vendas/opcao3/opcao3-10.jpeg',
+      '/images/Vendas/opcao3/opcao3-11.jpeg',
+      '/images/Vendas/opcao3/opcao3-12.jpeg',
+      '/images/Vendas/opcao3/opcao3-13.jpeg',
+      '/images/Vendas/opcao3/opcao3-14.jpeg',
     ]
   }
 };

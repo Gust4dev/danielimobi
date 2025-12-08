@@ -1,5 +1,6 @@
 import React from 'react';
 import { Section } from './ui/Section';
+import { Link } from 'react-router-dom';
 import { SectionGradient } from './ui/SectionGradient';
 import { PROPERTIES } from '../constants';
 import { motion } from 'framer-motion';
@@ -20,14 +21,18 @@ export const ListingsGrid: React.FC = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {PROPERTIES.map((property, index) => (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+            <Link 
+              to={`/vendas/opcao${property.id}`}
               key={property.id}
-              className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 border border-gray-100 flex flex-col"
+              className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 border border-gray-100 flex flex-col block"
             >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="h-full flex flex-col"
+              >
               <div className="relative h-80 overflow-hidden">
                 <img 
                   src={property.image} 
@@ -62,7 +67,8 @@ export const ListingsGrid: React.FC = () => {
                     </div>
                 </div>
               </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </Section>

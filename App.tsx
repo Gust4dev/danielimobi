@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { ProjectDetails } from './pages/ProjectDetails';
+import { SalesDetails } from './pages/SalesDetails';
 
 const App: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/empreendimento/:id" element={<ProjectDetails />} />
+        <Route path="/vendas/:id" element={<SalesDetails />} />
       </Routes>
     </Router>
   );
