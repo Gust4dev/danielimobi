@@ -11,10 +11,10 @@ export const ListingsGrid: React.FC = () => {
       <SectionGradient />
       <Section id="venda" className="py-10">
         <div className="text-center mb-12 space-y-6">
-          <h2 className="font-serif text-4xl md:text-5xl text-primary">Seu Portfólio</h2>
+          <h2 className="font-serif text-4xl md:text-5xl text-primary">ACERVO SELECIONADO</h2>
           <div className="w-24 h-1 bg-accent mx-auto" />
           <p className="text-black max-w-xl mx-auto pt-2">
-             Explore oportunidades selecionadas.
+             Curadoria de imóveis prontos para morar ou investir.
           </p>
         </div>
 

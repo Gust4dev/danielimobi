@@ -11,7 +11,7 @@ export const Testimonials: React.FC = () => {
       <Section className="py-10">
         <div className="flex flex-col items-center text-center mb-12 space-y-4">
           <Quote className="text-accent w-10 h-10 opacity-50 mb-2" />
-          <h2 className="font-serif text-3xl md:text-4xl text-primary">Depoimentos</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-primary">A PALAVRA DE QUEM INVESTE</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

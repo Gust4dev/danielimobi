@@ -4,7 +4,7 @@ import { FEATURED_PROJECTS } from '../constants';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { ProjectGallery } from '../components/ProjectGallery';
-import { CheckCircle2, MapPin, Ruler, BedDouble, Calendar } from 'lucide-react';
+import { CheckCircle2, MapPin, Ruler, BedDouble, Calendar, Car } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 export const ProjectDetails: React.FC = () => {
@@ -82,9 +82,10 @@ export const ProjectDetails: React.FC = () => {
                       {project.specs.map((spec, idx) => (
                           <div key={idx} className="flex items-center justify-between border-b border-gray-200 pb-4 last:border-0 last:pb-0">
                               <span className="text-gray-500 flex items-center gap-2">
-                                  {spec.label === 'Unidades' && <BedDouble size={18} />}
+                                  {(spec.label === 'Unidades' || spec.label === 'Quartos') && <BedDouble size={18} />}
                                   {spec.label === 'Metragem' && <Ruler size={18} />}
                                   {spec.label === 'Status' && <Calendar size={18} />}
+                                  {spec.label === 'Vagas' && <Car size={18} />}
                                   {spec.label}
                               </span>
                               <span className="font-bold text-gray-900 text-right">{spec.value}</span>

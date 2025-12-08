@@ -3,51 +3,51 @@ import { Property, Testimonial, FeaturedProject } from './types';
 export const PROPERTIES: Property[] = [
   {
     id: 1,
-    title: "Imóvel de Luxo 1",
+    title: "Mansão Jundiaí",
     price: "R$ 2.500.000",
-    features: "4 Suítes | 600m²",
+    features: "4 Suítes • 450m² • Piscina Aquecida",
     type: 'live',
-    image: "https://picsum.photos/id/10/800/600",
-    tag: "Exclusividade"
+    image: "https://images.unsplash.com/photo-1600596542815-6ad4c7213aa?q=80&w=2075&auto=format&fit=crop",
+    tag: "OPORTUNIDADE"
   },
   {
     id: 2,
-    title: "Lote Comercial",
+    title: "Lote Alphaville",
     price: "R$ 850.000",
-    features: "Terreno 450m² | Esquina",
+    features: "Esquina • 600m² • Vista Livre",
     type: 'invest',
-    image: "https://picsum.photos/id/13/800/600",
-    tag: "Oportunidade"
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2664&auto=format&fit=crop",
+    tag: "INVESTIMENTO"
   },
   {
     id: 3,
-    title: "Penthouse Premium",
-    price: "Consulte",
-    features: "Vista Panorâmica | 300m²",
+    title: "Penthouse Centro",
+    price: "Sob Consulta",
+    features: "3 Suítes • Vista 360º • Acabamento Mármore",
     type: 'live',
-    image: "https://picsum.photos/id/48/800/600",
-    tag: "Lançamento"
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+    tag: "EXCLUSIVO"
   }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    text: "Excelente atendimento e profissionalismo. Encontrei exatamente o que procurava de forma rápida e segura.",
-    author: "Cliente Satisfeito 1",
-    role: "Investidor"
+    text: "O Daniel tem uma visão de mercado diferenciada. Me ajudou a encontrar um lote que valorizou 40% em menos de um ano.",
+    author: "Dr. Carlos",
+    role: "Médico"
   },
   {
     id: 2,
-    text: "A transparência na negociação foi o diferencial. Recomendo para quem busca segurança jurídica.",
-    author: "Cliente Satisfeito 2",
+    text: "Segurança total na documentação. Foi a compra de imóvel mais tranquila que já fiz. Recomendo de olhos fechados.",
+    author: "Ana Paula",
     role: "Empresária"
   },
   {
     id: 3,
-    text: "Consultoria de alto nível. Entenderam perfeitamente meu perfil e me apresentaram as melhores opções.",
-    author: "Cliente Satisfeito 3",
-    role: "Advogado"
+    text: "Atendimento consultivo de verdade. Ele não tentou me empurrar qualquer imóvel, achou exatamente o que eu precisava.",
+    author: "Ricardo",
+    role: "Investidor"
   }
 ];
 
@@ -64,9 +64,9 @@ export const FEATURED_PROJECTS: Record<string, FeaturedProject> = {
     
     A infraestrutura conta com áreas comuns entregues equipadas e decoradas, rooftop com vista panorâmica, coworking, academia moderna e lavanderia compartilhada.`,
     specs: [
-      { label: 'Unidades', value: 'Studios e 1 Dorm' },
-      { label: 'Metragem', value: '25m² a 45m²' },
-      { label: 'Status', value: 'Lançamento' },
+      { label: 'Unidades', value: '1 e 2 Quartos' },
+      { label: 'Metragem', value: '38m² a 69m²' },
+      { label: 'Vagas', value: '1 Vaga' },
     ],
     features: [
       'Coworking Integrado',
@@ -101,8 +101,8 @@ export const FEATURED_PROJECTS: Record<string, FeaturedProject> = {
     
     O empreendimento oferece lazer completo com piscina aquecida, salão de festas gourmet e brinquedoteca segura.`,
     specs: [
-      { label: 'Unidades', value: '2 e 3 Suítes' },
-      { label: 'Metragem', value: '110m² a 180m²' },
+      { label: 'Quartos', value: '1 Quarto' },
+      { label: 'Metragem', value: '23m² a 38m²' },
       { label: 'Status', value: 'Em Construção' },
     ],
     features: [

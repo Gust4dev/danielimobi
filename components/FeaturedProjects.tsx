@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Zap, Shield, MapPin, Star, Gem, Layout } from 'lucide-react'; // Adicionei ícones novos para variar
+import { ArrowRight, BedDouble, Ruler, Car, Calendar, CheckCircle2 } from 'lucide-react'; 
 import { Button } from './ui/Button';
 import { Section } from './ui/Section';
 
@@ -100,16 +100,16 @@ export const FeaturedProjects: React.FC = () => {
 
                 <ul className="space-y-4 pt-4 border-t border-gray-200">
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        <Zap className="text-yellow-600 w-5 h-5" /> 
-                        <span>Smart Living (Locker & Automação)</span>
+                        <BedDouble className="text-yellow-600 w-5 h-5" /> 
+                        <span>1 e 2 Quartos</span>
                     </li>
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        <Shield className="text-yellow-600 w-5 h-5" /> 
-                        <span>Segurança (Guarita Blindada)</span>
+                        <Ruler className="text-yellow-600 w-5 h-5" /> 
+                        <span>38m² a 69m²</span>
                     </li>
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        <MapPin className="text-yellow-600 w-5 h-5" /> 
-                        <span>Localização Universitária</span>
+                        <Car className="text-yellow-600 w-5 h-5" /> 
+                        <span>1 Vaga de Garagem</span>
                     </li>
                 </ul>
 
@@ -146,13 +146,13 @@ export const FeaturedProjects: React.FC = () => {
 
                 <ul className="space-y-4 pt-4 border-t border-gray-200 md:flex md:flex-col md:items-end">
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        Exclusividade (Apenas 38 Unidades) <Star className="text-yellow-600 w-5 h-5" />
+                        1 Quarto <BedDouble className="text-yellow-600 w-5 h-5" />
                     </li>
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        Design Assinado (Estúdio LF) <Gem className="text-yellow-600 w-5 h-5" />
+                        23m² a 38m² <Ruler className="text-yellow-600 w-5 h-5" />
                     </li>
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        Plantas Inteligentes (22 a 37m²) <Layout className="text-yellow-600 w-5 h-5" />
+                        Em Construção <Calendar className="text-yellow-600 w-5 h-5" />
                     </li>
                 </ul>
 

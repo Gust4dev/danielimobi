@@ -34,16 +34,16 @@ export const Hero: React.FC = () => {
         >
           <div className="w-16 h-[2px] bg-accent" />
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight text-primary">
-            Título Principal <br />
-            <span className="italic font-light">slogan da sua</span> <br />
-            Marca Aqui.
+            CONSULTORIA IMOBILIÁRIA <br />
+            <span className="italic font-light text-accent">Investimento inteligente e patrimônio seguro.</span> <br />
+            DE ALTO PADRÃO
           </h1>
           <p className="font-sans text-black text-lg md:text-xl max-w-lg leading-relaxed border-l-2 border-accent/50 pl-6 backdrop-blur-sm">
-            Descrição curta e impactante sobre o seu negócio. Destaque seus diferenciais e valorize sua proposta única.
+            Atendimento personalizado para investidores e famílias que buscam segurança jurídica, rentabilidade e valorização imobiliária em Anápolis e região.
           </p>
           <div className="pt-4">
             <Button className="text-base px-10 py-4 shadow-lg">
-              Call to Action
+              AGENDAR CONSULTORIA
               <ArrowRight size={18} />
             </Button>
           </div>
@@ -76,7 +76,7 @@ export const Hero: React.FC = () => {
               transition={{ delay: 1.5 }}
               className="absolute -bottom-6 -left-6 bg-white shadow-xl p-6 max-w-xs border-l-4 border-accent"
             >
-              <p className="font-serif text-xl italic text-primary">"Frase de efeito ou destaque"</p>
+              <p className="font-serif text-xl italic text-primary">"Seu parceiro de negócios."</p>
             </motion.div>
           </div>
         </motion.div>
