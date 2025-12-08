@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { SALES_DETAILS } from '../constants';
+import { SALES_DETAILS, WHATSAPP_LINK } from '../constants';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { ProjectGallery } from '../components/ProjectGallery';
@@ -101,12 +101,14 @@ export const SalesDetails: React.FC = () => {
                   </div>
 
                   <div className="mt-8 space-y-4">
-                      <Button className="w-full bg-gray-900 text-white hover:bg-yellow-600 py-4 uppercase font-bold text-sm tracking-widest">
+                  <div className="mt-8 space-y-4">
+                      <Button 
+                        onClick={() => window.open(WHATSAPP_LINK, '_blank')}
+                        className="w-full bg-gray-900 text-white hover:bg-yellow-600 py-4 uppercase font-bold text-sm tracking-widest"
+                      >
                           Tenho Interesse
                       </Button>
-                      <Button className="w-full bg-white text-gray-900 border border-gray-300 hover:bg-gray-50 py-4 uppercase font-bold text-sm tracking-widest">
-                          Compartilhar
-                      </Button>
+                  </div>
                   </div>
               </div>
           </div>

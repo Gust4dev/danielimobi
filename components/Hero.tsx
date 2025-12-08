@@ -57,8 +57,11 @@ export const Hero: React.FC = () => {
             <Button className="text-sm px-10 py-5 bg-gray-900 text-white hover:bg-accent hover:text-white transition-all duration-300 shadow-2xl uppercase tracking-widest">
               Iniciar Consultoria <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-            <button className="px-8 py-4 bg-white/50 backdrop-blur border border-gray-300 text-gray-800 hover:bg-white hover:border-accent hover:text-accent transition-all uppercase tracking-widest text-xs font-bold">
-              Ver Carteira
+            <button 
+              onClick={() => document.getElementById('venda')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 bg-white/50 backdrop-blur border border-gray-300 text-gray-800 hover:bg-white hover:border-accent hover:text-accent transition-all uppercase tracking-widest text-xs font-bold"
+            >
+              Explorar Acervo
             </button>
           </div>
         </motion.div>

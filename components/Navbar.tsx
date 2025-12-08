@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from './ui/Button';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -12,60 +11,84 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // MUDANÇA: Substituído 'Sobre' por 'Relatos'
   const navLinks = [
     { name: 'Lançamentos', href: '#lancamentos' },
-    { name: 'Investimento', href: '#investimento' },
-    { name: 'Venda', href: '#venda' },
+    { name: 'Acervo', href: '#venda' },
+    { name: 'Relatos', href: '#depoimentos' }, // Link direto para a prova social
   ];
 
+  const scrollTo = (id: string) => {
+    const element = document.querySelector(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setMenuOpen(false);
+    }
+  };
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${
-      scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+    <nav className={`fixed w-full z-50 transition-all duration-700 ease-in-out ${
+      scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-8'
     }`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         
-        <div className="font-serif text-2xl font-bold tracking-tighter text-primary">
+        {/* LOGO */}
+        <div className="font-serif text-2xl font-bold tracking-tighter text-primary z-50 cursor-pointer">
           <a href="/">
-            <img src="/images/logo.png" alt="Brand Logo" className="h-12 w-auto object-contain" />
+            <img src="/images/logo.png" alt="Daniel Feitosa" className="h-10 w-auto object-contain" />
           </a>
         </div>
 
-        <div className="hidden md:flex items-center gap-8">
+        {/* MENU DESKTOP */}
+        <div className="hidden md:flex items-center gap-12">
           {navLinks.map((link) => (
-            <a 
+            <button 
               key={link.name} 
-              href={link.href}
-              className="text-sm font-medium text-primary hover:text-accent transition-colors uppercase tracking-widest"
+              onClick={() => scrollTo(link.href)}
+              className="text-[11px] font-bold text-gray-600 hover:text-accent transition-colors uppercase tracking-[0.2em] relative group"
             >
               {link.name}
-            </a>
+              <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full"></span>
+            </button>
           ))}
-          <Button>Fale Conosco</Button>
+          
+          <button 
+            onClick={() => scrollTo('#footer')}
+            className="px-6 py-3 border border-accent text-accent text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-accent hover:text-white transition-all duration-500"
+          >
+            Fale Comigo
+          </button>
         </div>
 
+        {/* MOBILE TOGGLE */}
         <button 
-          className="md:hidden text-primary"
+          className="md:hidden text-primary hover:text-accent transition-colors z-50"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? <X size={24} strokeWidth={1} /> : <Menu size={24} strokeWidth={1} />}
         </button>
       </div>
 
-      {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg p-6 flex flex-col gap-6 items-center">
+      {/* MOBILE MENU */}
+      <div className={`md:hidden fixed inset-0 bg-white/98 backdrop-blur-xl z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 ${
+        menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+      }`}>
            {navLinks.map((link) => (
-            <a 
+            <button 
               key={link.name} 
-              href={link.href}
-              className="text-lg font-serif text-primary hover:text-accent"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => scrollTo(link.href)}
+              className="text-xl font-serif text-primary hover:text-accent"
             >
               {link.name}
-            </a>
+            </button>
           ))}
-          <Button className="w-full">Fale Conosco</Button>
-        </div>
-      )}
+          <button 
+            onClick={() => scrollTo('#footer')}
+            className="mt-8 px-10 py-4 bg-primary text-white text-xs font-bold uppercase tracking-widest"
+          >
+            Agendar Reunião
+          </button>
+      </div>
     </nav>
   );
 };

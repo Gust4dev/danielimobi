@@ -133,6 +133,8 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
   }
 };
 
+export const WHATSAPP_LINK = 'https://wa.me/556292746409';
+
 export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
   'OPCAO1': {
     id: 'opcao1',

@@ -8,7 +8,8 @@ export const Testimonials: React.FC = () => {
   return (
     <div className="bg-background relative">
       <SectionGradient />
-      <Section className="py-10">
+      <SectionGradient />
+      <Section id="depoimentos" className="py-10 scroll-mt-32">
         <div className="flex flex-col items-center text-center mb-12 space-y-4">
           <Quote className="text-accent w-10 h-10 opacity-50 mb-2" />
           <h2 className="font-serif text-3xl md:text-4xl text-primary">A PALAVRA DE QUEM INVESTE</h2>

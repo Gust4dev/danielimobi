@@ -117,7 +117,7 @@ export const FeaturedProjects: React.FC = () => {
                   onClick={() => handleProjectClick('HIT')}
                   className="w-full md:w-auto bg-gray-900 text-white hover:bg-yellow-600 px-10 py-4 uppercase tracking-widest text-xs font-bold transition-all duration-300"
                 >
-                    Conhecer HIT
+                    Ver Oportunidade
                 </Button>
              </motion.div>
           </div>

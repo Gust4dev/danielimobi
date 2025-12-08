@@ -2,7 +2,7 @@ import React from 'react';
 import { Section } from './ui/Section';
 import { Link } from 'react-router-dom';
 import { SectionGradient } from './ui/SectionGradient';
-import { PROPERTIES } from '../constants';
+import { PROPERTIES, WHATSAPP_LINK } from '../constants';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -10,7 +10,7 @@ export const ListingsGrid: React.FC = () => {
   return (
     <div className="bg-white relative">
       <SectionGradient />
-      <Section id="venda" className="py-10">
+      <Section id="venda" className="py-10 scroll-mt-32">
         <div className="text-center mb-12 space-y-6">
           <h2 className="font-serif text-4xl md:text-5xl text-primary">ACERVO SELECIONADO</h2>
           <div className="w-24 h-1 bg-accent mx-auto" />
@@ -21,8 +21,10 @@ export const ListingsGrid: React.FC = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {PROPERTIES.map((property, index) => (
-            <Link 
-              to={`/vendas/opcao${property.id}`}
+            <a 
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               key={property.id}
               className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 border border-gray-100 flex flex-col block"
             >
@@ -68,7 +70,7 @@ export const ListingsGrid: React.FC = () => {
                 </div>
               </div>
               </motion.div>
-            </Link>
+            </a>
           ))}
         </div>
       </Section>
