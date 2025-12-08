@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, Instagram } from 'lucide-react';
 import { Button } from './ui/Button';
 
 // Ajustes da foto do Daniel
@@ -80,15 +80,29 @@ export const Hero: React.FC = () => {
             {/* Fundo Decorativo Atrás da Foto (Vidro Fosco) */}
             <div className="absolute -top-6 -right-6 w-full h-full border-2 border-white/50 bg-white/20 backdrop-blur-sm rounded-sm -z-10" />
             
-            {/* Container da Foto */}
-            <div className="relative w-[300px] h-[450px] md:w-[380px] md:h-[550px] bg-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden group">
+            {/* Container da Foto (Agora Interativo) */}
+            <a 
+              href="https://www.instagram.com/daniel_feitosadd" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block relative w-[300px] h-[450px] md:w-[380px] md:h-[550px] bg-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden group cursor-pointer"
+            >
               {/* Borda Dourada Interna */}
               <div className="absolute inset-4 border border-white/20 z-20 pointer-events-none" />
               
+               {/* OVERLAY DE HOVER (NOVO) */}
+              <div className="absolute inset-0 bg-black/40 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center gap-4">
+                  <Instagram className="text-white w-10 h-10 drop-shadow-md opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 transform translate-y-4 group-hover:translate-y-0" strokeWidth={1.5} />
+                  <span className="text-white font-serif italic text-xl tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-700 delay-200 transform translate-y-4 group-hover:translate-y-0 flex items-center gap-2">
+                     Ver Instagram <ArrowRight size={16} />
+                  </span>
+              </div>
+
               <img 
                 src={HERO_IMAGE_SETTINGS.src}
                 alt="Daniel Feitosa"
-                className="w-full h-full object-cover filter sepia-[0.1] contrast-110 group-hover:scale-105 transition-transform duration-1000"
+                // Adicionei group-hover:scale-105 e group-hover:brightness-90 para o efeito de escurecer
+                className="w-full h-full object-cover filter sepia-[0.1] contrast-110 group-hover:scale-110 group-hover:sepia-0 transition-all duration-1000 ease-out"
                 style={{
                   objectPosition: HERO_IMAGE_SETTINGS.position,
                   transform: `scale(${HERO_IMAGE_SETTINGS.zoom})`
@@ -96,14 +110,14 @@ export const Hero: React.FC = () => {
               />
               
               {/* Card de Nome Flutuante (Estilo Arquitetura) */}
-              <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur p-6 border-t border-accent/20">
+              <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur p-6 border-t border-accent/20 z-40">
                 <p className="font-serif text-2xl text-gray-900">Daniel Feitosa</p>
                 <div className="flex items-center gap-2 mt-1">
                   <div className="h-[1px] w-8 bg-accent" />
                   <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500">Private Broker</p>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </motion.div>
 

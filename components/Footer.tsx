@@ -1,45 +1,149 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
-import { Button } from './ui/Button';
+import { Instagram, MessageCircle, Mail, MapPin, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-white pt-10 pb-10">
-      <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
-        
-        <div className="space-y-6">
-          <h2 className="font-serif text-3xl md:text-4xl text-primary">
-            Vamos tomar um café e definir sua estratégia imobiliária?
-          </h2>
-          <p className="text-black max-w-lg mx-auto">
-            Entre em contato para agendar uma reunião exclusiva.
-          </p>
-          <div className="flex justify-center">
-             <Button 
-               onClick={() => window.open('https://wa.me/556292746409?text=Ol%C3%A1%20Daniel!%20Acessei%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20sua%20consultoria%20imobili%C3%A1ria.', '_blank')}
-               className="gap-3 shadow-xl hover:shadow-2xl px-8 py-4 text-base"
-             >
-                <MessageCircle size={20} />
-                INICIAR CONVERSA NO WHATSAPP
-             </Button>
+    // Updated Background: Light Gray base with Golden Gradient coming from bottom
+    <footer className="bg-gradient-to-t from-yellow-50 via-zinc-50 to-zinc-50 pt-24 pb-12 relative overflow-hidden text-zinc-800">
+      
+      {/* Structural Lines (Top) */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-zinc-200" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid md:grid-cols-12 gap-12 mb-20 relative">
+          
+          {/* Vertical Separator Lines (Hidden on Mobile) */}
+          <div className="hidden md:block absolute top-0 bottom-0 left-[33%] w-[1px] bg-zinc-200" />
+          <div className="hidden md:block absolute top-0 bottom-0 left-[66%] w-[1px] bg-zinc-200" />
+
+          {/* Column 1: Brand & About (4 cols) */}
+          <div className="md:col-span-4 space-y-8 pr-8">
+            <h2 className="font-serif text-3xl text-gray-900">
+              Daniel Feitosa
+              <span className="text-yellow-600">.</span>
+            </h2>
+            <p className="text-zinc-500 font-light leading-relaxed">
+              Especialista em propriedades de alto padrão e investimentos estratégicos. Conectando pessoas a estilos de vida exclusivos em Anápolis e região.
+            </p>
+            <div className="flex items-center gap-4">
+               {/* Social Icons */}
+               <a 
+                 href="https://wa.me/556292746409" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-white hover:border-yellow-600 hover:bg-yellow-600 transition-all duration-300"
+               >
+                 <MessageCircle size={18} />
+               </a>
+               <a 
+                 href="https://www.instagram.com/daniel_feitosadd" 
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-white hover:border-yellow-600 hover:bg-yellow-600 transition-all duration-300"
+               >
+                 <Instagram size={18} />
+               </a>
+            </div>
           </div>
+
+          {/* Column 2: Navigation (4 cols - Adjusted for spacing) */}
+          <div className="md:col-span-4 md:px-12 space-y-8">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-600">
+              Navegação
+            </h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="#lancamentos" className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit">
+                    Lançamentos
+                </a>
+              </li>
+              <li>
+                <a href="#venda" className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit">
+                    Acervo
+                </a>
+              </li>
+              <li>
+                <a href="#depoimentos" className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit">
+                    Relatos
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Contact (4 cols) */}
+          <div className="md:col-span-4 md:pl-12 space-y-8">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-600">
+              Contato
+            </h3>
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4 text-zinc-500 group">
+                <span className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-zinc-400 group-hover:text-yellow-600 transition-colors shrink-0">
+                   <MapPin size={18} />
+                </span>
+                <div>
+                   <span className="block text-gray-900 text-sm font-medium">Anápolis - GO</span>
+                   <span className="text-xs">Atendimento Presencial & Remoto</span>
+                </div>
+              </li>
+              
+              <li className="flex items-start gap-4 text-zinc-500 group">
+                <span className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-zinc-400 group-hover:text-yellow-600 transition-colors shrink-0">
+                   <MessageCircle size={18} />
+                </span>
+                <div>
+                   <span className="block text-gray-900 text-sm font-medium">+55 (62) 9 9274-6409</span>
+                   <span className="text-xs">WhatsApp & Fone</span>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-4 text-zinc-500 group">
+                <span className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-zinc-400 group-hover:text-yellow-600 transition-colors shrink-0">
+                   <Mail size={18} />
+                </span>
+                <div className="break-all">
+                   <span className="block text-gray-900 text-sm font-medium">danmendes20101@gmail.com</span>
+                   <span className="text-xs">Email Corporativo</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
-        <div className="border-t border-gray-100 w-full" />
+        {/* Footer Bottom */}
+        <div className="border-t border-zinc-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-center md:text-left order-2 md:order-1">
+              <p className="text-zinc-400 text-xs tracking-wider font-light">
+                © {currentYear} Daniel Feitosa Consultoria.
+              </p>
+          </div>
+          
+           {/* Developer Credit - Centered & Refined */}
+           <div className="order-1 md:order-2">
+               <a 
+                href="https://wa.me/556198031185?text=Ola,%20Gostaria%20de%20fazer%20um%20orcamento!" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-black text-[10px] font-normal tracking-[0.2em] hover:text-yellow-600 transition-colors uppercase"
+              >
+                  Desenvolvido por Gusta
+              </a>
+           </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-black gap-4">
-          <div className="text-center md:text-left">
-            <p>CRECI: 123456 | Anápolis - GO</p>
-          </div>
-          <div className="font-serif font-bold text-lg text-primary">
-            <img src="/images/logo.png" alt="Brand Logo" className="h-10 w-auto object-contain" />
-          </div>
-          <div className="text-center md:text-right">
-             <p>contato@exemplo.com.br</p>
-             <p>© 2025 Daniel Imóveis. Todos os direitos reservados.</p>
-          </div>
+          <button 
+             onClick={scrollToTop}
+             className="flex items-center gap-2 text-zinc-400 hover:text-yellow-600 transition-colors text-xs font-bold uppercase tracking-widest group order-3"
+          >
+             Voltar ao Topo
+             <ArrowUp size={14} className="group-hover:-translate-y-1 transition-transform" />
+          </button>
         </div>
-
       </div>
     </footer>
   );
