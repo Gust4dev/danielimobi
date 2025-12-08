@@ -12,7 +12,7 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: 2, // mapped to 'opcao2'
-    title: "Oportunidade Premium",
+    title: "Galpão Comercial",
     price: "R$ 2.000.000",
     features: "Localização Privilegiada • Amplo Espaço",
     type: 'invest',
@@ -21,7 +21,7 @@ export const PROPERTIES: Property[] = [
   },
   {
     id: 3, // mapped to 'opcao3'
-    title: "Apartamento Compacto",
+    title: "Casa Parque Brasília",
     price: "R$ 430.000",
     features: "Ótimo para Renda • Prático",
     type: 'invest',
@@ -33,7 +33,7 @@ export const PROPERTIES: Property[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    text: "O Daniel tem uma visão de mercado diferenciada. Me ajudou a encontrar um lote que valorizou 40% em menos de um ano.",
+    text: "O Daniel tem uma visão de mercado diferenciada. Me ajudou a encontrar um apartamento que valorizou 40% em 18 meses.",
     author: "Dr. Carlos",
     role: "Médico"
   },
@@ -72,7 +72,7 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
       'Coworking Integrado',
       'Rooftop Lounge',
       'Academia Equipada',
-      'Lavanderia OMO',
+      'Lavanderia',
       'Fechadura Digital',
       'Portaria Remota'
     ],
@@ -192,7 +192,7 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
     features: [
       'Localização Estratégica',
       'Documentação OK',
-      'Pronto para Construir/Morar',
+      'Pronto para Operação',
       'Bairro Planejado'
     ],
     mainImage: '/images/Vendas/opcao2/opcao2-7.jpeg',
