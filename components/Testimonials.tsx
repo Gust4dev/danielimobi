@@ -1,11 +1,13 @@
 import React from 'react';
 import { Section } from './ui/Section';
+import { SectionGradient } from './ui/SectionGradient';
 import { TESTIMONIALS } from '../constants';
 import { Quote } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   return (
-    <div className="bg-background">
+    <div className="bg-background relative">
+      <SectionGradient />
       <Section className="py-10">
         <div className="flex flex-col items-center text-center mb-12 space-y-4">
           <Quote className="text-accent w-10 h-10 opacity-50 mb-2" />

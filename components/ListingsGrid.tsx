@@ -1,12 +1,14 @@
 import React from 'react';
 import { Section } from './ui/Section';
+import { SectionGradient } from './ui/SectionGradient';
 import { PROPERTIES } from '../constants';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 export const ListingsGrid: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white relative">
+      <SectionGradient />
       <Section id="venda" className="py-10">
         <div className="text-center mb-12 space-y-6">
           <h2 className="font-serif text-4xl md:text-5xl text-primary">Seu Portfólio</h2>
