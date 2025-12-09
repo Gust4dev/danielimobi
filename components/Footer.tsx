@@ -1,9 +1,24 @@
 import React from 'react';
 import { Instagram, MessageCircle, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigation = (hash: string) => {
+    if (location.pathname === '/') {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(`/${hash}`);
+    }
   };
 
   const currentYear = new Date().getFullYear();
@@ -59,19 +74,19 @@ export const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-4">
               <li>
-                <a href="#lancamentos" className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit">
+                <button onClick={() => handleNavigation('#lancamentos')} className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit text-left">
                     Lançamentos
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#venda" className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit">
+                <button onClick={() => handleNavigation('#venda')} className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit text-left">
                     Acervo
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#depoimentos" className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit">
+                <button onClick={() => handleNavigation('#depoimentos')} className="text-zinc-500 hover:text-yellow-600 transition-colors text-sm tracking-wide block py-1 border-b border-transparent hover:border-zinc-200 w-fit text-left">
                     Relatos
-                </a>
+                </button>
               </li>
             </ul>
           </div>

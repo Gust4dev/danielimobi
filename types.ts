@@ -22,7 +22,12 @@ export interface ProjectDetailsType {
   fullDescription: string;
   location: string;
   specs: { label: string; value: string; icon?: any }[];
-  features: string[];
+  featureCategories?: {
+    title: string;
+    items: string[];
+    icon?: string; // Icon name from Lucide
+  }[];
+  features: string[]; // Keep for backward compatibility or simple list
   mainImage: string;
   gallery: string[];
   price?: string; // Added optional price

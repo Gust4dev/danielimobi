@@ -46,8 +46,8 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-[9999] transition-[background-color,padding] duration-700 ease-in-out ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-4 md:py-8'
+      <nav className={`fixed top-0 left-0 w-full z-[10001] transition-[background-color,padding] duration-700 ease-in-out ${
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-yellow-600' : 'bg-transparent py-4 md:py-8'
       }`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           
@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
       </nav>
 
       {/* MOBILE MENU - MOVED OUTSIDE NAV TO AVOID CLIPPING */}
-      <div className={`md:hidden fixed inset-0 bg-white/98 backdrop-blur-xl z-[9998] flex flex-col justify-center items-center gap-8 transition-all duration-500 ${
+      <div className={`md:hidden fixed inset-0 bg-white z-[10000] flex flex-col justify-center items-center gap-8 transition-all duration-500 ${
         menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
       }`}>
            {navLinks.map((link) => (

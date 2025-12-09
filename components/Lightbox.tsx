@@ -62,13 +62,13 @@ export const Lightbox: React.FC<LightboxProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center"
+          className="fixed inset-0 z-[100000] bg-black/95 backdrop-blur-sm flex items-center justify-center"
           onClick={onClose} // Close on background click
         >
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors z-[60] p-2"
+             className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors z-[100010] p-2"
           >
             <X size={32} />
           </button>
@@ -76,7 +76,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           {/* Left Arrow (Desktop) */}
           <button
             onClick={(e) => { e.stopPropagation(); paginate(-1); }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center text-white/50 hover:text-white transition-colors z-[60] p-4 group"
+            className="absolute left-4 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center text-white/50 hover:text-white transition-colors z-[100010] p-4 group"
           >
             <ChevronLeft size={48} className="group-hover:scale-110 transition-transform" />
           </button>
@@ -84,7 +84,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
           {/* Right Arrow (Desktop) */}
           <button
             onClick={(e) => { e.stopPropagation(); paginate(1); }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center text-white/50 hover:text-white transition-colors z-[60] p-4 group"
+            className="absolute right-4 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center text-white/50 hover:text-white transition-colors z-[100010] p-4 group"
           >
             <ChevronRight size={48} className="group-hover:scale-110 transition-transform" />
           </button>

@@ -1,80 +1,128 @@
 import { Property, Testimonial, ProjectDetailsType } from './types';
 
+export const WHATSAPP_LINK = 'https://wa.me/5562992746409';
+
+// === VITRINE DE VENDAS (GRID MENOR) ===
 export const PROPERTIES: Property[] = [
   {
     id: 1, // mapped to 'opcao1'
-    title: "Residência Alto Padrão",
+    title: "Residência no Jundiaí",
     price: "R$ 2.250.000",
-    features: "Alto Luxo • Acabamento Premium",
+    features: "4 Suítes • Acabamento Premium",
     type: 'live',
     image: "/images/Vendas/opcao1/opcao1-2.jpeg",
-    tag: "EXCLUSIVO"
+    tag: "ALTO PADRÃO"
   },
   {
     id: 2, // mapped to 'opcao2'
-    title: "Galpão Comercial",
+    title: "Galpão Comercial DAIA",
     price: "R$ 2.000.000",
-    features: "Localização Privilegiada • Amplo Espaço",
+    features: "Logística • Alta Rentabilidade",
     type: 'invest',
     image: "/images/Vendas/opcao2/opcao2-7.jpeg",
-    tag: "INVESTIMENTO"
+    tag: "OPORTUNIDADE"
   },
   {
     id: 3, // mapped to 'opcao3'
     title: "Casa Parque Brasília",
     price: "R$ 430.000",
-    features: "Ótimo para Renda • Prático",
+    features: "3 Quartos • Lazer Completo",
     type: 'invest',
     image: "/images/Vendas/opcao3/opcao3-18.jpeg",
-    tag: "OPORTUNIDADE"
+    tag: "VENDA RÁPIDA"
   }
 ];
 
+// === PROVA SOCIAL ===
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    text: "O Daniel tem uma visão de mercado diferenciada. Me ajudou a encontrar um apartamento que valorizou 40% em 18 meses.",
+    text: "O Daniel tem uma visão de mercado cirúrgica. Me direcionou para um lançamento que valorizou 40% antes mesmo da entrega das chaves.",
     author: "Dr. Carlos",
     role: "Médico"
   },
   {
     id: 2,
-    text: "Segurança total na documentação. Foi a compra de imóvel mais tranquila que já fiz. Recomendo de olhos fechados.",
+    text: "Segurança jurídica total. Foi a transação imobiliária mais transparente que já fiz. O Daniel cuida de cada detalhe do contrato.",
     author: "Ana Paula",
     role: "Empresária"
   },
   {
     id: 3,
-    text: "Atendimento consultivo de verdade. Ele não tentou me empurrar qualquer imóvel, achou exatamente o que eu precisava.",
+    text: "Não é apenas um corretor, é um consultor de patrimônio. Entendeu meu perfil conservador e montou uma carteira de renda passiva sólida.",
     author: "Ricardo",
     role: "Investidor"
   }
 ];
 
+// === LANÇAMENTOS (OS DESTAQUES ZIG-ZAG) ===
 export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
   'HIT': {
     id: 'HIT',
     title: 'HIT',
     subtitle: '"Onde sua vida acontece agora"',
-    location: 'Centro - Localização Estratégica',
-    description: 'Um empreendimento vibrante, localizado no coração da cidade. O HIT foi desenhado para quem busca praticidade, modernidade e um estilo de vida dinâmico.',
-    fullDescription: `O HIT é a materialização do estilo de vida contemporâneo. Localizado estrategicamente no centro da cidade, este empreendimento foi concebido para conectar você ao que realmente importa. 
-    
-    Com um design arrojado e funcional, o HIT oferece apartamentos compactos de alto padrão, ideais para investidores que buscam alta rentabilidade em aluguéis de curta temporada (Airbnb) ou para quem deseja viver com praticidade e sofisticação.
-    
-    A infraestrutura conta com áreas comuns entregues equipadas e decoradas, rooftop com vista panorâmica, coworking, academia moderna e lavanderia compartilhada.`,
+    location: 'Cidade Universitária',
+    description: 'Modernidade e valorização no metro quadrado mais desejado de Anápolis.',
+    // TEXTO ENCURTADO E DIRETO
+    fullDescription: `É Moderno. É Prático. É Rentável. Localizado no coração da Cidade Universitária, o HIT é a escolha definitiva para quem busca liquidez imediata e valorização patrimonial constante.`,
     specs: [
-      { label: 'Unidades', value: '1 e 2 Quartos' },
+      { label: 'Tipologia', value: 'Studios e 2Q' },
       { label: 'Metragem', value: '38m² a 69m²' },
-      { label: 'Vagas', value: '1 Vaga' },
+      { label: 'Rentabilidade', value: 'Alta Liquidez' },
+    ],
+    featureCategories: [
+      {
+        title: "Tecnologia (Smart Living)",
+        items: [
+          "Fechadura eletrônica",
+          "Smart Locker",
+          "Vaga para carros elétricos",
+          "Wi-Fi nas áreas comuns",
+          "Abertura via TAG"
+        ],
+        icon: "Smartphone"
+      },
+      {
+        title: "Sustentabilidade",
+        items: [
+          "Energia fotovoltaica (Comum)",
+          "Reúso de água",
+          "Bicicletário compartilhado",
+          "Torneiras temporizadoras",
+          "Coleta seletiva"
+        ],
+        icon: "Leaf"
+      },
+      {
+        title: "Segurança",
+        items: [
+          "Guarita blindada",
+          "Pulmão de segurança",
+          "Sensor de presença",
+          "Gerador de energia",
+          "CFTV HD"
+        ],
+        icon: "ShieldCheck"
+      },
+      {
+        title: "Conforto",
+        items: [
+          "Infraestrutura Ar-Condicionado",
+          "Tomadas USB",
+          "Áreas comuns mobiliadas",
+          "Acabamento by FC",
+          "Projeto Lumínico/Térmico"
+        ],
+        icon: "Sofa"
+      }
     ],
     features: [
-      'Coworking Integrado',
-      'Rooftop Lounge',
-      'Academia Equipada',
-      'Lavanderia',
-      'Fechadura Digital',
-      'Portaria Remota'
+      'Smart Locker',
+      'Vaga Elétrica',
+      'Guarita Blindada',
+      'Rentabilidade',
+      'Wi-Fi Zone',
+      'Acabamento Premium'
     ],
     mainImage: '/images/HIT/HITzigzag_main.jpg',
     gallery: [
@@ -91,27 +139,70 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
   },
   'DOMUS': {
     id: 'DOMUS',
-    title: 'DOMUS',
-    subtitle: '"A arte de viver bem"',
-    location: 'Bairro Nobre',
-    description: 'Sofisticação e exclusividade definem o DOMUS. Um projeto para quem não abre mão de conforto, com acabamentos de alto padrão e uma arquitetura que impressiona.',
-    fullDescription: `O DOMUS redefine o conceito de morar bem. Um projeto exclusivo, com poucas unidades, garantindo privacidade e tranquilidade para sua família.
-    
-    Cada detalhe foi pensado para oferecer o máximo de conforto: isolamento acústico superior, plantas generosas com varanda gourmet integrada e acabamentos de elite. A fachada imponente reflete a sofisticação do interior.
-    
-    O empreendimento oferece lazer completo com piscina aquecida, salão de festas gourmet e brinquedoteca segura.`,
+    title: 'DOMUS BLACK',
+    subtitle: '"Um novo conceito de sofisticação urbana"',
+    location: 'Ao lado da UniEVANGÉLICA',
+    description: 'Privacidade absoluta e design assinado pelo Estúdio LF.',
+    // TEXTO ENCURTADO E DIRETO (Baseado no PDF)
+    fullDescription: `Privacidade absoluta em uma localização estratégica. Com design assinado e apenas 38 unidades, o Domus Black une sofisticação, conforto acústico e a conveniência de ter a cidade aos seus pés.`,
     specs: [
-      { label: 'Quartos', value: '1 Quarto' },
-      { label: 'Metragem', value: '23m² a 38m²' },
-      { label: 'Status', value: 'Em Construção' },
+      { label: 'Exclusividade', value: '38 Unidades' },
+      { label: 'Metragem', value: '22m² a 37m²' },
+      { label: 'Assinatura', value: 'Estúdio LF' },
+    ],
+    featureCategories: [
+      {
+        title: "Black Edition",
+        items: [
+          "Fachada Imponente",
+          "Isolamento Acústico Superior",
+          "Varanda Gourmet Integrada",
+          "Design Assinado (Estúdio LF)",
+          "Ergonomia Inteligente"
+        ],
+        icon: "Sofa"
+      },
+      {
+        title: "Lazer & Convivência",
+        items: [
+          "Piscina Aquecida",
+          "Salão de Festas Gourmet",
+          "Brinquedoteca Segura",
+          "Lounge Externo",
+          "Espaços Decorados"
+        ],
+        icon: "Leaf"
+      },
+      {
+        title: "Localização Premium",
+        items: [
+          "Ao lado da UniEVANGÉLICA",
+          "Próximo ao Hospital do Câncer",
+          "Acesso rápido ao Shopping",
+          "Região de alta valorização",
+          "Conveniência total"
+        ],
+        icon: "MapPin"
+      },
+      {
+        title: "Diferenciais",
+        items: [
+          "2 Vagas de Garagem (Opcional)",
+          "Hobby Box Privativo",
+          "Infraestrutura de Serviço",
+          "Baixo custo de condomínio",
+          "Alta demanda"
+        ],
+        icon: "Smartphone"
+      }
     ],
     features: [
-      'Varanda Gourmet',
+      'Design Assinado',
       'Piscina Aquecida',
       'Isolamento Acústico',
-      '2 Vagas de Garagem',
-      'Hobby Box Privativo',
-      'Personalização de Planta'
+      'Varanda Gourmet',
+      'Poucas Unidades',
+      'Localização Nobre'
     ],
     mainImage: '/images/DOMUS/domuszigzag_main.png',
     gallery: [
@@ -133,32 +224,29 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
   }
 };
 
-export const WHATSAPP_LINK = 'https://wa.me/556292746409';
-
+// === DETALHES DAS VENDAS AVULSAS ===
 export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
   'OPCAO1': {
     id: 'opcao1',
-    title: 'Residência Premium',
+    title: 'Residência Premium Jundiaí',
     subtitle: 'R$ 2.250.000',
-    location: 'Localização Exclusiva',
-    description: 'Uma oportunidade única para quem busca conforto e exclusividade.',
-    fullDescription: `Esta residência de alto padrão oferece o que há de melhor em conforto e sofisticação.
+    location: 'Bairro Jundiaí - Área Nobre',
+    description: 'Luxo clássico e conforto moderno em 450m².',
+    fullDescription: `Esta residência oferece o ápice do conforto. Acabamentos em Mármore e Porcelanato de grandes formatos, com projeto que privilegia a luz natural.
     
-    Com acabamentos de primeira linha e um projeto arquitetônico moderno, cada espaço foi pensado para proporcionar bem-estar.
-    
-    Agende uma visita e encante-se com cada detalhe desta propriedade exclusiva.`,
+    Área de lazer privativa com piscina aquecida e espaço gourmet integrado. O cenário perfeito para sua família.`,
     price: 'R$ 2.250.000',
     specs: [
       { label: 'Valor', value: 'R$ 2.250.000' },
-      { label: 'Tipo', value: 'Residencial' },
-      { label: 'Padrão', value: 'Alto Luxo' }
+      { label: 'Área', value: '450m²' },
+      { label: 'Suítes', value: '4 Plenas' }
     ],
     features: [
-      'Acabamento Premium',
-      'Localização Privilegiada',
-      'Ampla Área de Lazer',
-      'Segurança 24h',
-      'Design Moderno'
+      'Acabamento em Mármore',
+      'Piscina Aquecida com Hidro',
+      'Área Gourmet Integrada',
+      'Home Cinema',
+      'Sistema de Segurança'
     ],
     mainImage: '/images/Vendas/opcao1/opcao1-2.jpeg',
     gallery: [
@@ -167,6 +255,7 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
       '/images/Vendas/opcao1/opcao1-3.jpeg',
       '/images/Vendas/opcao1/opcao1-4.jpeg',
       '/images/Vendas/opcao1/opcao1-5.jpeg',
+      // VÍDEOS MANTIDOS CONFORME SOLICITADO
       '/images/Vendas/opcao1/opcao-1.mp4',
       '/images/Vendas/opcao1/opcao1-1.mp4',
       '/images/Vendas/opcao1/opcao1-2.mp4',
@@ -174,26 +263,25 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
   },
   'OPCAO2': {
     id: 'opcao2',
-    title: 'Oportunidade de Investimento',
+    title: 'Galpão Logístico DAIA',
     subtitle: 'R$ 2.000.000',
-    location: 'Região Valorizada',
-    description: 'Excelente opção para quem busca valorização e segurança no investimento.',
-    fullDescription: `Imóvel situado em uma das regiões mais valorizadas da cidade.
+    location: 'Distrito Agroindustrial',
+    description: 'Estrutura pronta para operação de alta performance.',
+    fullDescription: `Imóvel comercial em região de alto fluxo logístico. Pé direito de 8 metros, piso de alta tonelagem e docas para carga e descarga.
     
-    Ideal tanto para moradia quanto para investimento, com alto potencial de rentabilidade.
-    
-    Não perca essa oportunidade de realizar um grande negócio.`,
+    Escritório administrativo no mezanino. Ideal para investidores de renda passiva ou expansão empresarial.`,
     price: 'R$ 2.000.000',
     specs: [
       { label: 'Valor', value: 'R$ 2.000.000' },
-      { label: 'Tipo', value: 'Investimento' },
-      { label: 'Potencial', value: 'Alta Valorização' }
+      { label: 'Área Total', value: '1.000m²' },
+      { label: 'Pé Direito', value: '8 Metros' }
     ],
     features: [
-      'Localização Estratégica',
-      'Documentação OK',
-      'Pronto para Operação',
-      'Bairro Planejado'
+      'Piso Alta Resistência',
+      'Docas de Carregamento',
+      'Área Administrativa',
+      'Pátio de Manobra',
+      'Transformador Próprio'
     ],
     mainImage: '/images/Vendas/opcao2/opcao2-7.jpeg',
     gallery: [
@@ -206,26 +294,25 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
   },
   'OPCAO3': {
     id: 'opcao3',
-    title: 'Smart Investment',
+    title: 'Casa Parque Brasília',
     subtitle: 'R$ 430.000',
-    location: 'Centro Expandido',
-    description: 'A porta de entrada para o mercado imobiliário com segurança.',
-    fullDescription: `Unidade compacta e funcional, perfeita para rentabilidade com locação ou primeira moradia.
+    location: 'Região em Expansão',
+    description: 'A oportunidade perfeita para primeiro imóvel ou renda.',
+    fullDescription: `Unidade funcional e bem localizada. Casa térrea com excelente aproveitamento de terreno, possibilitando ampliações futuras.
     
-    Localizado próximo a serviços essenciais e com fácil acesso às principais vias.
-    
-    Investimento inteligente com baixo custo de manutenção.`,
+    Próxima a escolas e vias de acesso rápido. Documentação 100% pronta para financiamento.`,
     price: 'R$ 430.000',
     specs: [
       { label: 'Valor', value: 'R$ 430.000' },
-      { label: 'Tipo', value: 'Compacto' },
-      { label: 'Rentabilidade', value: 'Imediata' }
+      { label: 'Quartos', value: '3 Quartos' },
+      { label: 'Garagem', value: '2 Vagas' }
     ],
     features: [
-      'Baixo Condomínio',
-      'Alta Procura',
-      'Perto de Tudos',
-      'Portaria 24h'
+      'Quintal Espaçoso',
+      'Cozinha Americana',
+      'Área de Serviço Coberta',
+      'Muro Alto / Concertina',
+      'Aceita Financiamento'
     ],
     mainImage: '/images/Vendas/opcao3/opcao3-18.jpeg',
     gallery: [

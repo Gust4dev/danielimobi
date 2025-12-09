@@ -71,7 +71,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ images }) => {
                   return (
                     <div 
                         key={actualIndex} 
-                        className="relative h-full"
+                        className="relative h-full rounded-sm overflow-hidden"
                     >
                         {renderItem(img, actualIndex, "h-full w-full")}
                         
