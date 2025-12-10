@@ -6,52 +6,64 @@ export const WHATSAPP_LINK = 'https://wa.me/5562992746409';
 export const PROPERTIES: Property[] = [
   {
     id: 1, // mapped to 'opcao1'
-    title: "Residência no Jundiaí",
+    title: "Casa Grand Trianon",
     price: "R$ 2.250.000",
-    features: "4 Suítes • Acabamento Premium",
+    features: "3 Suítes • Alto Padrão",
     type: 'live',
     image: "/images/Vendas/opcao1/opcao1-2.jpeg",
     tag: "ALTO PADRÃO"
   },
   {
     id: 2, // mapped to 'opcao2'
-    title: "Galpão Comercial DAIA",
+    title: "Galpão Comercial",
     price: "R$ 2.000.000",
-    features: "Logística • Alta Rentabilidade",
+    features: "1000m² • Logística e Comércio",
     type: 'invest',
     image: "/images/Vendas/opcao2/opcao2-7.jpeg",
     tag: "OPORTUNIDADE"
   },
   {
     id: 3, // mapped to 'opcao3'
-    title: "Casa Parque Brasília",
+    title: "Casa no Parque Brasília",
     price: "R$ 430.000",
     features: "3 Quartos • Lazer Completo",
-    type: 'invest',
+    type: 'live',
     image: "/images/Vendas/opcao3/opcao3-18.jpeg",
     tag: "VENDA RÁPIDA"
   }
 ];
 
-// === PROVA SOCIAL ===
+// === PROVA SOCIAL (CURTOS) ===
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    text: "O Daniel tem uma visão de mercado cirúrgica. Me direcionou para um lançamento que valorizou 40% antes mesmo da entrega das chaves.",
-    author: "Dr. Carlos",
-    role: "Médico"
+    text: "Não tentou me empurrar nada. Entendeu meu perfil e achou exatamente o que eu precisava para investir.",
+    author: "Ricardo",
+    role: "Investidor"
   },
   {
     id: 2,
-    text: "Segurança jurídica total. Foi a transação imobiliária mais transparente que já fiz. O Daniel cuida de cada detalhe do contrato.",
+    text: "A segurança jurídica que ele passa é surreal. Cuidou de toda a papelada e eu não tive dor de cabeça nenhuma.",
     author: "Ana Paula",
     role: "Empresária"
   },
   {
     id: 3,
-    text: "Não é apenas um corretor, é um consultor de patrimônio. Entendeu meu perfil conservador e montou uma carteira de renda passiva sólida.",
-    author: "Ricardo",
-    role: "Investidor"
+    text: "Visão de mercado impressionante. O imóvel que ele me indicou valorizou muito antes mesmo da entrega.",
+    author: "Dr. Carlos",
+    role: "Médico"
+  },
+  {
+    id: 4,
+    text: "Economizou meu tempo. Filtrou só o que realmente tinha o padrão que minha família buscava.",
+    author: "Fernanda",
+    role: "Arquiteta"
+  },
+  {
+    id: 5,
+    text: "Transparência total. Me mostrou os prós e contras de cada opção sem rodeios. Profissional raro.",
+    author: "Roberto",
+    role: "Advogado"
   }
 ];
 
@@ -135,6 +147,93 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
       '/images/HIT/HIT (7).jpeg',
       '/images/HIT/HIT (8).jpeg',
       '/images/HIT/HIT (9).jpeg',
+    ]
+  },
+  'ARES': {
+    id: 'ARES',
+    title: 'ARES JUNDIAÍ',
+    subtitle: '"Viver novos ares no bairro mais nobre"',
+    location: 'Bairro Jundiaí',
+    description: 'O novo marco urbano com 30 andares e vista 360º.',
+    fullDescription: `O Bairro Jundiaí, um dos mais tradicionais e valorizados de Anápolis, ganha um novo marco na paisagem urbana: o Ares Jundiaí. Com 30 andares e vista panorâmica em 360 graus, ele redefine o horizonte da cidade.
+    
+    Assinado pela EMISA Incorporadora (48 anos de história), o empreendimento aposta na verticalização inteligente e no conceito de "viver novos ares". O lazer é distribuído estrategicamente em dois pavimentos: Rooftop e Sub Living, além de espaços planejados para trabalho, convivência e bem-estar.
+    
+    Localizado próximo ao Parque Ipiranga, colégios tradicionais e clínicas médicas, o Ares consolida posicionamento de alta qualidade e valorização urbana.`,
+    specs: [
+      { label: 'Tipologia', value: '2 e 3 Quartos' },
+      { label: 'Metragem', value: '62m² e 82m²' },
+      { label: 'Lazer', value: 'Rooftop + Sub Living' },
+    ],
+    featureCategories: [
+      {
+        title: "Lazer Premium",
+        items: [
+          "Gourmet Rooftop",
+          "Piscina Climatizada",
+          "Spa & Sauna",
+          "Pub Exclusivo",
+          "Mirante 360º"
+        ],
+        icon: "Sofa"
+      },
+      {
+        title: "Facilidades",
+        items: [
+          "Coworking",
+          "Espaço Delivery",
+          "Portaria 24h",
+          "Lobby Imponente",
+          "Bicicletário"
+        ],
+        icon: "Smartphone"
+      },
+      {
+        title: "Bem-estar",
+        items: [
+          "Academia (Fitness Rooftop)",
+          "Sala de Massagem",
+          "Espaço Beleza",
+          "Praça de Convivência",
+          "Pet Place"
+        ],
+        icon: "Leaf"
+      },
+      {
+        title: "Família",
+        items: [
+          "Brinquedoteca",
+          "Playground",
+          "Piscina Infantil",
+          "Salão de Festas",
+          "Salão de Jogos"
+        ],
+        icon: "ShieldCheck"
+      }
+    ],
+    features: [
+      'Vista Panorâmica',
+      '30 Andares',
+      'Rooftop Completo',
+      'Localização Nobre',
+      'Piscina Climatizada',
+      'Design Imponente'
+    ],
+    mainImage: '/images/Ares/ares-1.png',
+    gallery: [
+      '/images/Ares/ares-1.png',
+      '/images/Ares/ares-2.png',
+      '/images/Ares/ares-4.png',
+      '/images/Ares/ares-5.png',
+      '/images/Ares/ares-3.png',
+      '/images/Ares/ares-6.png',
+      '/images/Ares/ares-7.png',
+      '/images/Ares/ares-8.png',
+      '/images/Ares/ares-9.png',
+      '/images/Ares/ares-10.png',
+      '/images/Ares/ares-11.png',
+      '/images/Ares/ares-12.png',
+      '/images/Ares/ares-13.png',
     ]
   },
   'DOMUS': {
@@ -228,25 +327,43 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
 export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
   'OPCAO1': {
     id: 'opcao1',
-    title: 'Residência Premium Jundiaí',
-    subtitle: 'R$ 2.250.000',
-    location: 'Bairro Jundiaí - Área Nobre',
-    description: 'Luxo clássico e conforto moderno em 450m².',
-    fullDescription: `Esta residência oferece o ápice do conforto. Acabamentos em Mármore e Porcelanato de grandes formatos, com projeto que privilegia a luz natural.
+    title: 'Casa Alto Padrão - Condomínio Grand Trianon',
+    subtitle: 'R$ 2.250.000,00',
+    location: 'Condomínio Grand Trianon, Anápolis',
+    description: 'Casa de Alto Padrão com 3 suítes, piscina aquecida e energia solar.',
+    fullDescription: `Casa de Alto Padrão localizada no Condomínio Grand Trianon.
     
-    Área de lazer privativa com piscina aquecida e espaço gourmet integrado. O cenário perfeito para sua família.`,
-    price: 'R$ 2.250.000',
+    Detalhes do Imóvel:
+    - 3 suítes (Sendo 1 Suíte Master com Closet)
+    - 1 Quarto sem Banheiro
+    - Sala ampla com pé direito alto
+    - Cozinha Gourmet integrada com Deck e Piscina
+    - Piscina Aquecida com Ofurô
+    - Garagem Subterrânea com Móveis Planejados
+    
+    Diferenciais:
+    - Box nos banheiros
+    - Cortinas de Tecido Automatizadas
+    - Cortinas na Cozinha Blackout Autorizadas
+    - Portas Toda em PVC Brancas
+    - Poço Artesiano
+    - Boiler de Água Quente 600 Litros
+    - Aquecimento Solar (Produzindo até R$1.100,00/mês)
+    - Automatização nas Janelas
+    - Porta com fechadura digital`,
+    price: 'R$ 2.250.000,00',
     specs: [
       { label: 'Valor', value: 'R$ 2.250.000' },
-      { label: 'Área', value: '450m²' },
-      { label: 'Suítes', value: '4 Plenas' }
+      { label: 'Terreno', value: '420 m²' },
+      { label: 'Construção', value: '245 m²' }
     ],
     features: [
-      'Acabamento em Mármore',
-      'Piscina Aquecida com Hidro',
-      'Área Gourmet Integrada',
-      'Home Cinema',
-      'Sistema de Segurança'
+      '3 Suítes + 1 Quarto',
+      'Piscina Aquecida + Ofurô',
+      'Energia Solar',
+      'Poço Artesiano',
+      'Automação Residencial',
+      'Garagem Subterrânea'
     ],
     mainImage: '/images/Vendas/opcao1/opcao1-2.jpeg',
     gallery: [
@@ -263,25 +380,37 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
   },
   'OPCAO2': {
     id: 'opcao2',
-    title: 'Galpão Logístico DAIA',
-    subtitle: 'R$ 2.000.000',
-    location: 'Distrito Agroindustrial',
-    description: 'Estrutura pronta para operação de alta performance.',
-    fullDescription: `Imóvel comercial em região de alto fluxo logístico. Pé direito de 8 metros, piso de alta tonelagem e docas para carga e descarga.
+    title: 'Galpão Comercial',
+    subtitle: 'Oportunidade para Seu Negócio',
+    location: 'R. F - Granjas Santo Antonio - Anápolis-GO',
+    description: 'Galpão Comercial com 600 m² Construídos em Terreno de 1000 m².',
+    fullDescription: `Galpão Comercial com 600 m² Construídos em Terreno de 1000 m² – Oportunidade para Seu Negócio!
     
-    Escritório administrativo no mezanino. Ideal para investidores de renda passiva ou expansão empresarial.`,
+    Espaço amplo, versátil e pronto para atender às necessidades da sua empresa. Localizado em área estratégica, este galpão oferece 600 m² de construção em um terreno de 1000 m², ideal para logística, armazenamento, indústria leve ou comércio. Invista em estrutura, localização e potencial de crescimento!
+    
+    Características:
+    - 1 banheiro
+    - 1000 m² total
+    - 600 m² útil
+    - Construído em 2025
+    - Projeto aprovado
+    
+    Condições de pagamento:
+    - Aceita permuta
+    - Aceita carro
+    - Aceita imóvel`,
     price: 'R$ 2.000.000',
     specs: [
       { label: 'Valor', value: 'R$ 2.000.000' },
-      { label: 'Área Total', value: '1.000m²' },
-      { label: 'Pé Direito', value: '8 Metros' }
+      { label: 'Área Total', value: '1000 m²' },
+      { label: 'Área Útil', value: '600 m²' }
     ],
     features: [
-      'Piso Alta Resistência',
-      'Docas de Carregamento',
-      'Área Administrativa',
-      'Pátio de Manobra',
-      'Transformador Próprio'
+      '1000m² Total',
+      '600m² Útil',
+      'Logística/Comércio',
+      'Projeto Aprovado',
+      'Aceita Permuta'
     ],
     mainImage: '/images/Vendas/opcao2/opcao2-7.jpeg',
     gallery: [
@@ -290,29 +419,50 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
       '/images/Vendas/opcao2/opcao2-7.jpeg',
       '/images/Vendas/opcao2/opcao2-8.jpeg',
       '/images/Vendas/opcao2/opcao2-9.jpeg',
+      '/images/Vendas/opcao2/opcao2-10.jpeg',
+      '/images/Vendas/opcao2/opcao2-11.jpeg',
     ]
   },
   'OPCAO3': {
     id: 'opcao3',
-    title: 'Casa Parque Brasília',
-    subtitle: 'R$ 430.000',
-    location: 'Região em Expansão',
+    title: 'Casa no Parque Brasília',
+    subtitle: 'R$ 430.000,00',
+    location: 'Rua PB-11, Qd. 25 - Lt. 20, Pq. Brasília II Etapa',
     description: 'A oportunidade perfeita para primeiro imóvel ou renda.',
-    fullDescription: `Unidade funcional e bem localizada. Casa térrea com excelente aproveitamento de terreno, possibilitando ampliações futuras.
+    fullDescription: `Vende-se Casa com 3 quartos no Parque Brasília
     
-    Próxima a escolas e vias de acesso rápido. Documentação 100% pronta para financiamento.`,
-    price: 'R$ 430.000',
+    - 3 quartos (sendo um suíte)
+    - Sala com pé direito duplo
+    - Iluminação em LED
+    - Banheiros com nicho iluminado
+    - Acabamentos dos banheiros: Deca, Docol e Celite
+    - Cozinha ampla integrada com a sala
+    - Ilha para CookTop na cozinha
+    - Garagem coberta para 2 carros
+    - Área de serviço
+    - Janelas em Blindex
+    - Porcelanato polido retificado 72x72
+    - Rodapé embutido
+    - Gás encanado
+    - Estrutura reforçada`,
+    price: 'R$ 430.000,00',
     specs: [
       { label: 'Valor', value: 'R$ 430.000' },
       { label: 'Quartos', value: '3 Quartos' },
-      { label: 'Garagem', value: '2 Vagas' }
+      { label: 'Garagem', value: '2 Vagas' },
+      { label: 'Área do Lote', value: '150m²' },
+      { label: 'Área Construída', value: '105m²' }
     ],
     features: [
-      'Quintal Espaçoso',
-      'Cozinha Americana',
-      'Área de Serviço Coberta',
-      'Muro Alto / Concertina',
-      'Aceita Financiamento'
+      'Sala Pé Direito Duplo',
+      'Iluminação em LED',
+      'Banheiros com Nicho',
+      'Acabamentos Premium',
+      'Cozinha com Ilha',
+      'Janelas em Blindex',
+      'Porcelanato Polido',
+      'Gás Encanado',
+      'Estrutura Reforçada'
     ],
     mainImage: '/images/Vendas/opcao3/opcao3-18.jpeg',
     gallery: [

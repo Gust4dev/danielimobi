@@ -17,8 +17,7 @@ import {
   ShieldCheck,
   ChevronRight,
   Heart,
-  Download,
-  Printer,
+
   Mail,
   Phone,
   Menu,
@@ -112,7 +111,7 @@ export const SalesDetails: React.FC = () => {
             >
               <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span className="bg-gradient-to-r from-amber-600 to-amber-800 text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full">
-                  {item.specs.find(s => s.label === 'Tipo')?.value || 'Exclusivo'}
+                  {item.specs.find(s => s.label === 'Tipo') ? item.specs.find(s => s.label === 'Tipo')?.value : 'Exclusivo'}
                 </span>
                 <span className="text-xs text-amber-100 bg-black/20 px-2 py-1 rounded-full">
                   Código: {salesId}
@@ -214,44 +213,10 @@ export const SalesDetails: React.FC = () => {
             <div className="bg-white rounded-xl shadow-sm p-4 md:p-8 border border-gray-100" id="gallery">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="font-serif text-xl md:text-2xl text-gray-900">Galeria de Imagens</h2>
-                <div className="hidden md:flex items-center gap-2">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-sm text-gray-600 hover:text-gray-900"
-                  >
-                    <Download size={16} className="mr-2" />
-                    Baixar
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-sm text-gray-600 hover:text-gray-900"
-                  >
-                    <Printer size={16} className="mr-2" />
-                    Imprimir
-                  </Button>
-                </div>
+
               </div>
               <ProjectGallery images={item.gallery} />
-              <div className="md:hidden flex items-center justify-center gap-4 mt-6">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="text-sm"
-                >
-                  <Download size={16} className="mr-2" />
-                  Fotos
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="text-sm"
-                >
-                  <Printer size={16} className="mr-2" />
-                  Imprimir
-                </Button>
-              </div>
+
             </div>
           </div>
 
@@ -300,53 +265,20 @@ export const SalesDetails: React.FC = () => {
               </p>
             </div>
 
-            {/* Additional Details */}
+            {/* Additional Details - Dynamic */}
             <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-              <h3 className="font-serif text-lg text-gray-900 mb-4">Detalhes Adicionais</h3>
+              <h3 className="font-serif text-lg text-gray-900 mb-4">Resumo</h3>
               <div className="space-y-3">
-                <div className="flex items-center justify-between py-2 border-b border-gray-50">
-                  <span className="text-sm text-gray-500">Ano de Construção</span>
-                  <span className="font-medium">2023</span>
-                </div>
-                <div className="flex items-center justify-between py-2 border-b border-gray-50">
-                  <span className="text-sm text-gray-500">Condomínio</span>
-                  <span className="font-medium">R$ 1.200/mês</span>
-                </div>
-                <div className="flex items-center justify-between py-2 border-b border-gray-50">
-                  <span className="text-sm text-gray-500">IPTU</span>
-                  <span className="font-medium">R$ 800/mês</span>
-                </div>
-                <div className="flex items-center justify-between py-2">
-                  <span className="text-sm text-gray-500">Disponibilidade</span>
-                  <span className="font-medium text-green-600">Imediata</span>
-                </div>
+                {item.specs.map((spec, idx) => (
+                  <div key={idx} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
+                    <span className="text-sm text-gray-500">{spec.label}</span>
+                    <span className="font-medium text-gray-900">{spec.value}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Documents */}
-            <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-              <h3 className="font-serif text-lg text-gray-900 mb-4">Documentação</h3>
-              <div className="space-y-2">
-                <div className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded bg-blue-50 flex items-center justify-center">
-                      <span className="text-blue-600 text-xs font-bold">PDF</span>
-                    </div>
-                    <span className="text-sm text-gray-700">Planta Baixa</span>
-                  </div>
-                  <Download size={16} className="text-gray-400" />
-                </div>
-                <div className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded bg-green-50 flex items-center justify-center">
-                      <span className="text-green-600 text-xs font-bold">DOC</span>
-                    </div>
-                    <span className="text-sm text-gray-700">Registro do Imóvel</span>
-                  </div>
-                  <Download size={16} className="text-gray-400" />
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

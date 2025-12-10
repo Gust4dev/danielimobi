@@ -71,7 +71,7 @@ export const FeaturedProjects: React.FC = () => {
                    
                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-700" />
                    
-                   <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                   <div className="absolute bottom-8 right-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-500">
                       <span className="bg-white/90 backdrop-blur text-gray-900 px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg">
                         Ver Detalhes <ArrowRight size={14} />
                       </span>
@@ -122,10 +122,10 @@ export const FeaturedProjects: React.FC = () => {
              </motion.div>
           </div>
 
-          {/* === PROJETO 2: DOMUS BLACK (A Grife) === */}
+          {/* === PROJETO 2: ARES (Novo Marco) === */}
           <div className="grid md:grid-cols-12 gap-8 items-center">
              
-             {/* TEXTO - DOMUS (Esquerda) */}
+             {/* TEXTO - ARES (Esquerda) */}
              <motion.div 
                initial={{ opacity: 0, x: -50 }}
                whileInView={{ opacity: 1, x: 0 }}
@@ -133,35 +133,35 @@ export const FeaturedProjects: React.FC = () => {
                className="md:col-span-5 md:pr-8 space-y-8 order-2 md:order-1"
              >
                 <div className="md:text-right">
-                    <span className="text-gray-900 bg-gray-200 px-3 py-1 font-bold tracking-widest text-xs uppercase mb-2 inline-block">Black Edition</span>
-                    <h3 className="text-5xl font-serif text-gray-900 mb-4">DOMUS</h3>
+                    <span className="text-gray-900 bg-gray-200 px-3 py-1 font-bold tracking-widest text-xs uppercase mb-2 inline-block">Destaque</span>
+                    <h3 className="text-5xl font-serif text-gray-900 mb-4">ARES</h3>
                     <p className="text-xl text-gray-500 italic font-light border-r-2 border-yellow-600 pr-4 inline-block">
-                        "Um novo conceito de sofisticação urbana."
+                        "Viver novos ares no bairro mais nobre"
                     </p>
                 </div>
 
                 <p className="text-gray-600 leading-relaxed text-base font-light md:text-right">
-                    Uma obra-prima assinada pelo <strong>Estúdio LF</strong>. Idealizado para o novo viver, o Domus une beleza, conforto e hiperconexão na região de maior demanda da cidade.
+                    O novo marco na paisagem urbana do <strong>Jundiaí</strong>. Com 30 andares e vista panorâmica, o Ares redefine o conceito de alto padrão com lazer no Rooftop e Sub Living.
                 </p>
 
                 <ul className="space-y-4 pt-4 border-t border-gray-200 md:flex md:flex-col md:items-end">
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        1 Quarto <BedDouble className="text-yellow-600 w-5 h-5" />
+                        2 e 3 Quartos <BedDouble className="text-yellow-600 w-5 h-5" />
                     </li>
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        23m² a 38m² <Ruler className="text-yellow-600 w-5 h-5" />
+                        62m² a 82m² <Ruler className="text-yellow-600 w-5 h-5" />
                     </li>
                     <li className="flex items-center gap-3 text-gray-800 font-medium">
-                        Em Construção <Calendar className="text-yellow-600 w-5 h-5" />
+                        Rooftop + Sub Living <Calendar className="text-yellow-600 w-5 h-5" />
                     </li>
                 </ul>
 
                 <div className="md:flex md:justify-end">
                     <Button 
-                      onClick={() => handleProjectClick('DOMUS')}
+                      onClick={() => handleProjectClick('ARES')}
                       className="w-full md:w-auto bg-gray-900 text-white hover:bg-yellow-600 px-10 py-4 uppercase tracking-widest text-xs font-bold transition-all duration-300"
                     >
-                        Conhecer Domus
+                        Ver Oportunidade
                     </Button>
                 </div>
              </motion.div>
@@ -173,8 +173,44 @@ export const FeaturedProjects: React.FC = () => {
                viewport={{ once: true }}
                whileHover={{ scale: 1.02 }}
                transition={{ duration: 0.4 }}
-               onClick={() => handleProjectClick('DOMUS')}
+               onClick={() => handleProjectClick('ARES')}
                className="md:col-span-7 relative group cursor-pointer order-1 md:order-2"
+             >
+                {/* Glow Effect */}
+                <div className="absolute -inset-1 bg-yellow-600/0 group-hover:bg-yellow-600/20 blur-xl transition-all duration-500 -z-10" />
+
+                <div className="relative h-[500px] md:h-[600px] w-full overflow-hidden shadow-2xl bg-white">
+                   <div className="absolute inset-4 border border-white/30 z-20 pointer-events-none" />
+                   
+                   <img 
+                       src="/images/Ares/ares-1.png" 
+                       alt="Ares Jundiaí" 
+                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                   />
+                   
+                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-700" />
+
+                   <div className="absolute bottom-8 left-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-500">
+                      <span className="bg-white/90 backdrop-blur text-gray-900 px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg">
+                        Ver Detalhes <ArrowRight size={14} />
+                      </span>
+                   </div>
+                </div>
+             </motion.div>
+          </div>
+
+          {/* === PROJETO 3: DOMUS BLACK (A Grife) === */}
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+             
+             {/* IMAGEM INTERATIVA (Esquerda - FLIPPED) */}
+             <motion.div 
+               initial={{ opacity: 0, x: -50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               whileHover={{ scale: 1.02 }}
+               transition={{ duration: 0.4 }}
+               onClick={() => handleProjectClick('DOMUS')}
+               className="md:col-span-7 relative group cursor-pointer"
              >
                 {/* Glow Effect */}
                 <div className="absolute -inset-1 bg-yellow-600/0 group-hover:bg-yellow-600/20 blur-xl transition-all duration-500 -z-10" />
@@ -190,12 +226,54 @@ export const FeaturedProjects: React.FC = () => {
                    
                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-700" />
 
-                   <div className="absolute bottom-8 left-8 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                   <div className="absolute bottom-8 right-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-500">
                       <span className="bg-white/90 backdrop-blur text-gray-900 px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg">
                         Ver Detalhes <ArrowRight size={14} />
                       </span>
                    </div>
                 </div>
+             </motion.div>
+
+             {/* TEXTO - DOMUS (Direita - FLIPPED) */}
+             <motion.div 
+               initial={{ opacity: 0, x: 50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               className="md:col-span-5 md:pl-8 space-y-8"
+             >
+                <div>
+                    <span className="text-gray-900 bg-gray-200 px-3 py-1 font-bold tracking-widest text-xs uppercase mb-2 inline-block">Black Edition</span>
+                    <h3 className="text-5xl font-serif text-gray-900 mb-4">DOMUS</h3>
+                    <p className="text-xl text-gray-500 italic font-light border-l-2 border-yellow-600 pl-4">
+                        "Um novo conceito de sofisticação urbana."
+                    </p>
+                </div>
+
+                <p className="text-gray-600 leading-relaxed text-base font-light">
+                    Uma obra-prima assinada pelo <strong>Estúdio LF</strong>. Idealizado para o novo viver, o Domus une beleza, conforto e hiperconexão na região de maior demanda da cidade.
+                </p>
+
+                <ul className="space-y-4 pt-4 border-t border-gray-200">
+                    <li className="flex items-center gap-3 text-gray-800 font-medium">
+                        <BedDouble className="text-yellow-600 w-5 h-5" /> 
+                        <span>1 Quarto</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-gray-800 font-medium">
+                        <Ruler className="text-yellow-600 w-5 h-5" /> 
+                        <span>23m² a 38m²</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-gray-800 font-medium">
+                        <Calendar className="text-yellow-600 w-5 h-5" /> 
+                        <span>Em Construção</span>
+                    </li>
+                </ul>
+
+                <Button 
+                  onClick={() => handleProjectClick('DOMUS')}
+                  className="w-full md:w-auto bg-gray-900 text-white hover:bg-yellow-600 px-10 py-4 uppercase tracking-widest text-xs font-bold transition-all duration-300"
+                >
+                    Ver Oportunidade
+                </Button>
              </motion.div>
           </div>
 
