@@ -2,10 +2,10 @@ import { Property, Testimonial, ProjectDetailsType } from './types';
 
 export const WHATSAPP_LINK = 'https://wa.me/5562992746409';
 
-// === VITRINE DE VENDAS (GRID MENOR) ===
+
 export const PROPERTIES: Property[] = [
   {
-    id: 1, // mapped to 'opcao1'
+    id: 1,
     title: "Casa Grand Trianon",
     price: "R$ 2.250.000",
     features: "3 Suítes • Alto Padrão",
@@ -14,7 +14,7 @@ export const PROPERTIES: Property[] = [
     tag: "ALTO PADRÃO"
   },
   {
-    id: 2, // mapped to 'opcao2'
+    id: 2,
     title: "Galpão Comercial",
     price: "R$ 2.000.000",
     features: "1000m² • Logística e Comércio",
@@ -23,7 +23,7 @@ export const PROPERTIES: Property[] = [
     tag: "OPORTUNIDADE"
   },
   {
-    id: 3, // mapped to 'opcao3'
+    id: 3,
     title: "Casa no Parque Brasília",
     price: "R$ 430.000",
     features: "3 Quartos • Lazer Completo",
@@ -33,7 +33,7 @@ export const PROPERTIES: Property[] = [
   }
 ];
 
-// === PROVA SOCIAL (CURTOS) ===
+
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
@@ -67,7 +67,7 @@ export const TESTIMONIALS: Testimonial[] = [
   }
 ];
 
-// === LANÇAMENTOS (OS DESTAQUES ZIG-ZAG) ===
+
 export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
   'HIT': {
     id: 'HIT',
@@ -75,7 +75,7 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
     subtitle: '"Onde sua vida acontece agora"',
     location: 'Cidade Universitária',
     description: 'Modernidade e valorização no metro quadrado mais desejado de Anápolis.',
-    // TEXTO ENCURTADO E DIRETO
+
     fullDescription: `É Moderno. É Prático. É Rentável. Localizado no coração da Cidade Universitária, o HIT é a escolha definitiva para quem busca liquidez imediata e valorização patrimonial constante.`,
     specs: [
       { label: 'Tipologia', value: 'Studios e 2Q' },
@@ -221,19 +221,15 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
     ],
     mainImage: '/images/Ares/ares-1.png',
     gallery: [
-      '/images/Ares/ares-1.png',
-      '/images/Ares/ares-2.png',
-      '/images/Ares/ares-4.png',
-      '/images/Ares/ares-5.png',
       '/images/Ares/ares-3.png',
-      '/images/Ares/ares-6.png',
+      '/images/Ares/ares-5.png',
       '/images/Ares/ares-7.png',
-      '/images/Ares/ares-8.png',
-      '/images/Ares/ares-9.png',
       '/images/Ares/ares-10.png',
       '/images/Ares/ares-11.png',
-      '/images/Ares/ares-12.png',
-      '/images/Ares/ares-13.png',
+      '/images/Ares/ares-14.png',
+      '/images/Ares/ares-15.png',
+      '/images/Ares/ares-18.png',
+      '/images/Ares/ares-20.png',
     ]
   },
   'DOMUS': {
@@ -242,7 +238,7 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
     subtitle: '"Um novo conceito de sofisticação urbana"',
     location: 'Ao lado da UniEVANGÉLICA',
     description: 'Privacidade absoluta e design assinado pelo Estúdio LF.',
-    // TEXTO ENCURTADO E DIRETO (Baseado no PDF)
+
     fullDescription: `Privacidade absoluta em uma localização estratégica. Com design assinado e apenas 38 unidades, o Domus Black une sofisticação, conforto acústico e a conveniência de ter a cidade aos seus pés.`,
     specs: [
       { label: 'Exclusividade', value: '38 Unidades' },
@@ -323,7 +319,7 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
   }
 };
 
-// === DETALHES DAS VENDAS AVULSAS ===
+
 export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
   'OPCAO1': {
     id: 'opcao1',
@@ -372,7 +368,7 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
       '/images/Vendas/opcao1/opcao1-3.jpeg',
       '/images/Vendas/opcao1/opcao1-4.jpeg',
       '/images/Vendas/opcao1/opcao1-5.jpeg',
-      // VÍDEOS MANTIDOS CONFORME SOLICITADO
+
       '/images/Vendas/opcao1/opcao-1.mp4',
       '/images/Vendas/opcao1/opcao1-1.mp4',
       '/images/Vendas/opcao1/opcao1-2.mp4',

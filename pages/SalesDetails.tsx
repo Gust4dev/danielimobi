@@ -5,7 +5,6 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { ProjectGallery } from '../components/ProjectGallery';
 import { 
-  CheckCircle2, 
   MapPin, 
   Ruler, 
   BedDouble, 
@@ -20,11 +19,8 @@ import {
 
   Mail,
   Phone,
-  Menu,
-  X,
   ChevronLeft,
-  ChevronDown,
-  ArrowRight
+  ChevronDown
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { motion } from 'framer-motion';
@@ -53,7 +49,7 @@ export const SalesDetails: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Navbar />
       
-      {/* === MOBILE FLOATING ACTION BAR === */}
+
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 p-4 shadow-2xl">
         <div className="flex items-center justify-between">
           <div>
@@ -69,7 +65,7 @@ export const SalesDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* === HERO SECTION - RESPONSIVE === */}
+
       <div className="relative h-[50vh] md:h-[70vh] w-full overflow-hidden mt-16 md:mt-0">
         <div className="absolute inset-0">
           <img 
@@ -80,7 +76,7 @@ export const SalesDetails: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/40 to-transparent" />
         </div>
 
-        {/* Mobile Back Button */}
+
         <button
           onClick={() => window.history.back()}
           className="absolute top-4 left-4 md:hidden w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center"
@@ -88,7 +84,7 @@ export const SalesDetails: React.FC = () => {
           <ChevronLeft size={20} className="text-white" />
         </button>
 
-        {/* Mobile Action Buttons */}
+
         <div className="absolute top-4 right-4 flex gap-2 md:hidden">
           <button className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center">
             <Share2 size={18} className="text-white" />
@@ -131,7 +127,7 @@ export const SalesDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* === MOBILE NAVIGATION TABS === */}
+
       <div className="md:hidden sticky top-0 z-40 bg-white border-b border-gray-200">
         <div className="flex overflow-x-auto scrollbar-hide">
           {['info', 'features', 'gallery', 'contact'].map((section) => (
@@ -156,14 +152,14 @@ export const SalesDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* === MAIN CONTENT - RESPONSIVE === */}
+
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-12">
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 md:gap-8">
           
-          {/* LEFT COLUMN - Main Content (Mobile First) */}
+
           <div className="lg:col-span-8 space-y-6 md:space-y-10">
             
-            {/* Quick Specs Grid - Mobile Compact */}
+
             <div className="md:hidden" id="info">
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {item.specs.slice(0, 4).map((spec, idx) => (
@@ -178,7 +174,7 @@ export const SalesDetails: React.FC = () => {
               </div>
             </div>
 
-            {/* Property Description - Mobile Accordion */}
+
             <div className="bg-white rounded-xl shadow-sm p-4 md:p-8 border border-gray-100" id="info">
               <div className="flex items-center justify-between mb-4 md:mb-6">
                 <h2 className="font-serif text-xl md:text-2xl text-gray-900">Descrição Detalhada</h2>
@@ -191,7 +187,7 @@ export const SalesDetails: React.FC = () => {
               </div>
             </div>
 
-            {/* Premium Features - Mobile Optimized */}
+
             <div className="bg-white rounded-xl shadow-sm p-4 md:p-8 border border-gray-100" id="features">
               <div className="flex items-center gap-3 mb-6">
                 <ShieldCheck className="text-amber-600" size={20} />
@@ -209,7 +205,7 @@ export const SalesDetails: React.FC = () => {
               </div>
             </div>
 
-            {/* Photo Gallery - Mobile Optimized */}
+
             <div className="bg-white rounded-xl shadow-sm p-4 md:p-8 border border-gray-100" id="gallery">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="font-serif text-xl md:text-2xl text-gray-900">Galeria de Imagens</h2>
@@ -220,9 +216,9 @@ export const SalesDetails: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT COLUMN - Sidebar (Hidden on Mobile) */}
+
           <div className="hidden lg:block lg:col-span-4 space-y-6">
-            {/* Desktop Contact Card */}
+
             <div className="bg-gradient-to-b from-gray-900 to-black rounded-xl shadow-xl p-6 text-white sticky top-28">
               <h3 className="font-serif text-xl mb-6 pb-4 border-b border-gray-700">
                 Contato Direto
@@ -265,7 +261,7 @@ export const SalesDetails: React.FC = () => {
               </p>
             </div>
 
-            {/* Additional Details - Dynamic */}
+
             <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
               <h3 className="font-serif text-lg text-gray-900 mb-4">Resumo</h3>
               <div className="space-y-3">
@@ -283,7 +279,7 @@ export const SalesDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* === MOBILE CONTACT SECTION (Expanded) === */}
+
       <div className="lg:hidden bg-white border-t border-gray-200 mt-8" id="contact">
         <div className="p-6 space-y-6">
           <h3 className="font-serif text-xl text-gray-900">Entre em Contato</h3>
@@ -326,7 +322,7 @@ export const SalesDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Bottom Padding */}
+
       <div className="h-20 md:h-0" />
 
       <Footer />
@@ -334,7 +330,7 @@ export const SalesDetails: React.FC = () => {
   );
 };
 
-// Updated icon helper
+
 const getIcon = (label: string) => {
   const iconClass = "text-amber-600";
   
