@@ -23,6 +23,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { PropertyMap } from '../components/PropertyMap';
 import { motion } from 'framer-motion';
 
 export const SalesDetails: React.FC = () => {
@@ -213,6 +214,20 @@ export const SalesDetails: React.FC = () => {
               </div>
               <ProjectGallery images={item.gallery} />
 
+            </div>
+
+
+            {/* Seção do Mapa */}
+            <div className="bg-white rounded-xl shadow-sm p-4 md:p-8 border border-gray-100" id="map">
+              <div className="flex items-center gap-3 mb-6">
+                <MapPin className="text-amber-600" size={20} />
+                <h2 className="font-serif text-xl md:text-2xl text-gray-900">Imóveis na Região</h2>
+              </div>
+              <p className="text-gray-500 text-sm mb-6">Explore outros imóveis disponíveis para venda em Anápolis.</p>
+              <PropertyMap 
+                currentPropertyId={item.id} 
+                propertyType="sales" 
+              />
             </div>
           </div>
 

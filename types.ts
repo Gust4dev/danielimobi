@@ -31,6 +31,10 @@ export interface ProjectDetailsType {
   mainImage: string;
   gallery: string[];
   price?: string; // Added optional price
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
 }
 
 // Deprecated alias to maintain backward compatibility if needed, or just replace usages

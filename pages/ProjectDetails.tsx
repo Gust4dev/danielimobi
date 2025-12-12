@@ -10,6 +10,7 @@ import {
   Maximize2, Car, Layers, X, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { PropertyMap } from '../components/PropertyMap';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'framer-motion';
 
 export const ProjectDetails: React.FC = () => {
@@ -244,6 +245,22 @@ export const ProjectDetails: React.FC = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+
+      {/* Seção do Mapa */}
+      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="mb-12">
+            <h3 className="text-amber-500 uppercase tracking-widest text-sm font-semibold mb-4">Localização</h3>
+            <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">Imóveis na Região</h2>
+            <p className="text-gray-400 max-w-2xl">Explore nosso portfólio completo de lançamentos em Anápolis. Clique nos marcadores para ver detalhes de cada empreendimento.</p>
+          </div>
+          <PropertyMap 
+            currentPropertyId={project.id} 
+            propertyType="featured" 
+          />
         </div>
       </section>
 

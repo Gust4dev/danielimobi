@@ -147,7 +147,11 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
       '/images/HIT/HIT (7).jpeg',
       '/images/HIT/HIT (8).jpeg',
       '/images/HIT/HIT (9).jpeg',
-    ]
+    ],
+    coordinates: {
+      lat: -16.3235,
+      lng: -48.9512
+    }
   },
   'ARES': {
     id: 'ARES',
@@ -230,7 +234,11 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
       '/images/Ares/ares-15.png',
       '/images/Ares/ares-18.png',
       '/images/Ares/ares-20.png',
-    ]
+    ],
+    coordinates: {
+      lat: -16.3190,
+      lng: -48.9600
+    }
   },
   'DOMUS': {
     id: 'DOMUS',
@@ -315,7 +323,11 @@ export const FEATURED_PROJECTS: Record<string, ProjectDetailsType> = {
       '/images/DOMUS/Domus (13).jpeg',
       '/images/DOMUS/Domus (14).jpeg',
       '/images/DOMUS/Domus (1).jpeg',
-    ]
+    ],
+    coordinates: {
+      lat: -16.3322,
+      lng: -48.9382
+    }
   }
 };
 
@@ -372,7 +384,11 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
       '/images/Vendas/opcao1/opcao-1.mp4',
       '/images/Vendas/opcao1/opcao1-1.mp4',
       '/images/Vendas/opcao1/opcao1-2.mp4',
-    ]
+    ],
+    coordinates: {
+      lat: -16.3052,
+      lng: -48.9328
+    }
   },
   'OPCAO2': {
     id: 'opcao2',
@@ -417,7 +433,11 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
       '/images/Vendas/opcao2/opcao2-9.jpeg',
       '/images/Vendas/opcao2/opcao2-10.jpeg',
       '/images/Vendas/opcao2/opcao2-11.jpeg',
-    ]
+    ],
+    coordinates: {
+      lat: -16.3490,
+      lng: -48.9037
+    }
   },
   'OPCAO3': {
     id: 'opcao3',
@@ -484,6 +504,10 @@ export const SALES_DETAILS: Record<string, ProjectDetailsType> = {
       '/images/Vendas/opcao3/opcao3-20.jpeg',
       '/images/Vendas/opcao3/opcao3-21.jpeg',
       '/images/Vendas/opcao3/opcao3-22.jpeg',
-    ]
+    ],
+    coordinates: {
+      lat: -16.3115,
+      lng: -48.9245
+    }
   }
 };
