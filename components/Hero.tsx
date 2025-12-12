@@ -85,10 +85,10 @@ export const Hero: React.FC = () => {
               href="https://www.instagram.com/daniel_feitosadd" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="block relative w-[300px] h-[450px] md:w-[380px] md:h-[550px] bg-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden group cursor-pointer"
+              className="block relative w-[300px] h-[450px] md:w-[380px] md:h-[550px] bg-gray-100 overflow-hidden group cursor-pointer mb-20 md:mb-0 ring-2 ring-amber-500/40 shadow-[0_20px_60px_rgba(212,175,55,0.2)]"
             >
-              {/* Borda Dourada Interna */}
-              <div className="absolute inset-4 border border-white/20 z-20 pointer-events-none" />
+              {/* Borda Dourada Interna (mais visível) */}
+              <div className="absolute inset-3 border border-amber-500/30 z-20 pointer-events-none" />
               
                {/* OVERLAY DE HOVER (NOVO) */}
               <div className="absolute inset-0 bg-black/40 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center gap-4">
