@@ -13,6 +13,17 @@ const Divider = () => <div className="w-full h-[1px] bg-accent shadow-sm" />;
 export const Home: React.FC = () => {
   const location = useLocation();
 
+  // Disable browser scroll restoration and always scroll to top on mount
+  useEffect(() => {
+    // Prevent browser from restoring scroll position
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    
+    // Immediate scroll to top on page load/refresh
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     // Check if we need to scroll to a section
     if (location.hash) {

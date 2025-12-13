@@ -5,7 +5,7 @@ import { Button } from './ui/Button';
 
 // Ajustes da foto do Daniel
 const HERO_IMAGE_SETTINGS = {
-  src: "/images/hero_face.jpeg",
+  src: "/images/hero_face.webp",
   zoom: 1.1,         
   position: "center 20%", 
 };

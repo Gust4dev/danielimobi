@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
               className="font-serif text-2xl font-bold tracking-tighter text-primary z-50 cursor-pointer"
               onClick={handleLogoClick}
           >
-              <img src="/images/logo.png" alt="Daniel Feitosa" className="h-10 w-auto object-contain" />
+              <img src="/images/logo.webp" alt="Daniel Feitosa" className="h-10 w-auto object-contain" />
           </div>
 
           {/* MENU DESKTOP */}

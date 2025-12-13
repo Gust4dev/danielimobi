@@ -64,7 +64,7 @@ export const FeaturedProjects: React.FC = () => {
                    <div className="absolute inset-4 border border-white/30 z-20 pointer-events-none" />
                    
                    <img 
-                       src="/images/HIT/HITzigzag_main.jpg" 
+                       src="/images/HIT/HITzigzag_main.webp" 
                        alt="HIT Smart Living" 
                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
                    />
@@ -183,7 +183,7 @@ export const FeaturedProjects: React.FC = () => {
                    <div className="absolute inset-4 border border-white/30 z-20 pointer-events-none" />
                    
                    <img 
-                       src="/images/Ares/ares-1.png" 
+                       src="/images/Ares/ares-1.webp" 
                        alt="Ares Jundiaí" 
                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                    />
@@ -219,7 +219,7 @@ export const FeaturedProjects: React.FC = () => {
                    <div className="absolute inset-4 border border-white/30 z-20 pointer-events-none" />
                    
                    <img 
-                       src="/images/DOMUS/domuszigzag_main.png" 
+                       src="/images/DOMUS/domuszigzag_main.webp" 
                        alt="DOMUS Empreendimento" 
                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                    />

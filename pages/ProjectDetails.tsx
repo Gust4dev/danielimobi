@@ -4,26 +4,32 @@ import { FEATURED_PROJECTS } from '../constants';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { LuxuryReveal } from '../components/ui/LuxuryReveal';
+import { Lightbox } from '../components/Lightbox';
 import { 
   ArrowRight, MapPin, Leaf, Sofa, 
   Zap, ShieldCheck, Building2, 
-  Maximize2, Car, Layers, X, ChevronLeft, ChevronRight
+  Maximize2, Car, Layers
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { PropertyMap } from '../components/PropertyMap';
-import { motion, useScroll, useTransform, AnimatePresence, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export const ProjectDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = id ? FEATURED_PROJECTS[id.toUpperCase()] : null;
   const [activeImage, setActiveImage] = useState<number | null>(null);
   
-  // Scroll & Parallax
-  const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 1000], [0, 400]);
-  const heroScale = useTransform(scrollY, [0, 1000], [1.1, 1]);
-  const heroOpacity = useTransform(scrollY, [0, 800], [1, 0]);
+  // Mobile detection for performance
+  const isMobile = useIsMobile();
   
+  // Scroll & Parallax - only enabled on desktop
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 1000], [0, isMobile ? 0 : 400]);
+  const heroScale = useTransform(scrollY, [0, 1000], [1.1, isMobile ? 1.1 : 1]);
+  const heroOpacity = useTransform(scrollY, [0, 800], [1, isMobile ? 1 : 0]);
+  
+  // Use spring only on desktop (springY disabled on mobile for performance)
   const smoothY = useSpring(heroY, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
@@ -41,7 +47,7 @@ export const ProjectDetails: React.FC = () => {
       <Navbar />
 
 
-      <div className="relative h-[110vh] w-full overflow-hidden">
+      <div className="relative h-screen w-full overflow-hidden">
 
         <motion.div 
           style={{ y: smoothY, scale: heroScale, opacity: heroOpacity }}
@@ -56,7 +62,7 @@ export const ProjectDetails: React.FC = () => {
         </motion.div>
 
 
-        <div className="relative z-20 h-full flex flex-col justify-end pb-32 px-6 md:px-20 max-w-[1920px] mx-auto">
+        <div className="relative z-20 h-full flex flex-col justify-end pb-48 md:pb-40 px-6 md:px-20 max-w-[1920px] mx-auto">
           <LuxuryReveal>
             <div className="space-y-6">
               <div className="flex items-center gap-4 text-amber-400/90 tracking-[0.3em] text-sm font-light uppercase">
@@ -79,7 +85,7 @@ export const ProjectDetails: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className="absolute bottom-12 left-6 md:left-20 flex items-center gap-4"
+            className="absolute bottom-32 md:bottom-24 left-6 md:left-auto md:right-20 flex md:flex-row-reverse items-center gap-4"
           >
             <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center animate-bounce">
               <ArrowRight className="rotate-90 text-white/50" size={20} />
@@ -300,64 +306,14 @@ export const ProjectDetails: React.FC = () => {
 
       <Footer />
 
-
-      <AnimatePresence>
-        {activeImage !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black backdrop-blur-3xl flex items-center justify-center"
-          >
-            <button 
-              onClick={() => setActiveImage(null)}
-              className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50"
-            >
-              <X size={32} />
-            </button>
-
-             <button 
-              onClick={(e) => {
-                e.stopPropagation();
-                setActiveImage(prev => prev !== null && prev > 0 ? prev - 1 : galleryImages.length - 1);
-              }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 z-50 hidden md:block"
-            >
-              <ChevronLeft size={40} />
-            </button>
-
-            <button 
-              onClick={(e) => {
-                e.stopPropagation();
-                setActiveImage(prev => prev !== null && prev < galleryImages.length - 1 ? prev + 1 : 0);
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-4 z-50 hidden md:block"
-            >
-              <ChevronRight size={40} />
-            </button>
-
-            <motion.img
-              key={activeImage}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              src={galleryImages[activeImage]}
-              alt="Gallery Fullscreen"
-              className="max-h-[90vh] max-w-[95vw] object-contain shadow-2xl"
-            />
-            
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {galleryImages.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveImage(idx)}
-                  className={`w-2 h-2 rounded-full transition-all ${idx === activeImage ? 'bg-white w-6' : 'bg-white/20'}`}
-                />
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Lightbox - using unified component with mobile swipe support */}
+      <Lightbox 
+        images={galleryImages} 
+        selectedIndex={activeImage ?? 0} 
+        isOpen={activeImage !== null} 
+        onClose={() => setActiveImage(null)} 
+        onNavigate={setActiveImage}
+      />
     </div>
   );
 };
