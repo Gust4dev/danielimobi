@@ -107,15 +107,16 @@ const MarkerClusterGroup: React.FC<{
   useEffect(() => {
     if (!map) return;
 
-    // Create marker cluster group with custom styling
+    // Create marker cluster group with optimized settings for precision
     const clusterGroup = L.markerClusterGroup({
       showCoverageOnHover: false,
-      maxClusterRadius: 50,
+      maxClusterRadius: 40,           // Raio menor = agrupa apenas markers muito próximos
       spiderfyOnMaxZoom: true,
-      disableClusteringAtZoom: 15,
-      zoomToBoundsOnClick: false, // We handle this manually
-      spiderfyDistanceMultiplier: 1.5,
+      disableClusteringAtZoom: 17,    // Desagrupa em zoom mais alto para precisão
+      zoomToBoundsOnClick: false,     // We handle this manually
+      spiderfyDistanceMultiplier: 2,  // Maior espaçamento no spiderfy
       animate: true,
+      removeOutsideVisibleBounds: true, // Performance: remove markers fora da view
       iconCreateFunction: (cluster) => {
         const count = cluster.getChildCount();
         return L.divIcon({
@@ -145,21 +146,31 @@ const MarkerClusterGroup: React.FC<{
       },
     });
 
-    // Handle cluster click manually for better centering
+    // Handle cluster click - use fitBounds to ensure ALL markers are visible
     clusterGroup.on('clusterclick', (e: any) => {
       const cluster = e.layer;
       const bounds = cluster.getBounds();
-      const center = bounds.getCenter();
       
-      // Get current zoom and calculate target zoom
-      const currentZoom = map.getZoom();
-      const targetZoom = Math.min(currentZoom + 2, 16);
+      // Calculate bounds size to detect very close/overlapping markers
+      const ne = bounds.getNorthEast();
+      const sw = bounds.getSouthWest();
+      const boundsSize = ne.distanceTo(sw);
       
-      // Zoom to center of cluster bounds
-      map.setView(center, targetZoom, {
-        animate: true,
-        duration: 0.5,
-      });
+      if (boundsSize < 50) {
+        // Markers são muito próximos (< 50 metros) - zoom máximo e deixa spiderfy agir
+        const center = bounds.getCenter();
+        map.setView(center, 18, { 
+          animate: true,
+          duration: 0.5,
+        });
+      } else {
+        // Comportamento normal - fitBounds garante TODOS os markers visíveis
+        map.fitBounds(bounds, {
+          padding: [80, 80],    // Padding generoso para evitar markers nas bordas
+          maxZoom: 18,          // Permite zoom máximo para clusters próximos
+          animate: true,
+        });
+      }
     });
 
     // Add markers to cluster group
@@ -256,6 +267,16 @@ const MarkerClusterGroup: React.FC<{
         closeButton: true,
         autoPan: true,
         autoPanPadding: L.point(50, 50),
+      });
+
+      // Centraliza o mapa no marker quando clicado
+      marker.on('click', () => {
+        const latlng = marker.getLatLng();
+        // Centraliza com leve offset para cima para acomodar o popup
+        map.setView([latlng.lat + 0.008, latlng.lng], map.getZoom(), {
+          animate: true,
+          duration: 0.3,
+        });
       });
 
       clusterGroup.addLayer(marker);
