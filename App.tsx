@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
@@ -16,6 +17,7 @@ const PageLoader = () => (
 const App: React.FC = () => {
   return (
     <Router>
+      <WhatsAppButton />
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Home />} />

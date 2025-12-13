@@ -1,5 +1,21 @@
 {
-  "name": "Luxury Estate Consultant",
-  "description": "A high-end real estate landing page featuring a luxurious off-white and gold theme, smooth animations, and a portfolio showcase.",
-  "requestFramePermissions": []
+  "name": "Daniel Feitosa Imóveis",
+  "short_name": "Daniel Imobi",
+  "description": "Consultoria imobiliária de alto padrão em Anápolis. Imóveis exclusivos e assessoria de investimento.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9FAFB",
+  "theme_color": "#D4AF37",
+  "icons": [
+    {
+      "src": "/images/logocfundo.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/logocfundo.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
 }
