@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!api|images|assets|favicon|.*\\..*).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
