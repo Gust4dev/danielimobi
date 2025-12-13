@@ -2,19 +2,31 @@ import React from 'react';
 import { Section } from './ui/Section';
 import { LuxuryReveal } from './ui/LuxuryReveal';
 import { ShieldCheck, TrendingUp, Key } from 'lucide-react';
+import { useIsMobile, MOBILE_PERF_CONFIG } from '../hooks/useIsMobile';
 
 export const Authority: React.FC = () => {
+  const isMobile = useIsMobile();
+  const shouldDisableBlur = isMobile && MOBILE_PERF_CONFIG.disableBlur;
+
   return (
     // WRAPPER FULL WIDTH - Remove o "quadrado no meio"
     <section className="relative w-full bg-[#0a0a0a] text-white py-32 overflow-hidden border-y border-accent/30">
       
-      {/* Background Ambience - Deep Luxury */}
+      {/* Background Ambience - Deep Luxury (simplified on mobile) */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-[#0a0a0a] to-[#0a0a0a] opacity-80" />
-      <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
       
-      {/* Golden Glow - Sophistication */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Pattern texture - skip on mobile (network + GPU cost) */}
+      {!shouldDisableBlur && (
+        <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
+      )}
+      
+      {/* Golden Glow - Skip blur on mobile (heavy GPU compositing) */}
+      {!shouldDisableBlur && (
+        <>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+        </>
+      )}
 
       {/* Border Lines Decorativas (O "Algo em volta") */}
       <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" />

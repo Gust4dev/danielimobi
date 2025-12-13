@@ -4,9 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight, BedDouble, Ruler, Car, Calendar, CheckCircle2 } from 'lucide-react'; 
 import { Button } from './ui/Button';
 import { Section } from './ui/Section';
+import { useIsMobile, MOBILE_PERF_CONFIG } from '../hooks/useIsMobile';
 
 export const FeaturedProjects: React.FC = () => {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const shouldDisableAnimations = isMobile && MOBILE_PERF_CONFIG.disableAnimations;
+  const shouldDisableBlur = isMobile && MOBILE_PERF_CONFIG.disableBlur;
 
   // Função placeholder para navegação futura
   const handleProjectClick = (project: string) => {
@@ -16,27 +20,38 @@ export const FeaturedProjects: React.FC = () => {
   return (
     <div id="lancamentos" className="relative bg-zinc-50 overflow-hidden">
       
-      {/* BACKGROUND SUTIL (Mármore Abstrato) */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-yellow-600/5 blur-[150px]" />
-        <div className="absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gray-300/20 blur-[120px]" />
-      </div>
+      {/* BACKGROUND SUTIL - Skip blur on mobile */}
+      {!shouldDisableBlur && (
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] rounded-full bg-yellow-600/5 blur-[150px]" />
+          <div className="absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gray-300/20 blur-[120px]" />
+        </div>
+      )}
 
       <Section className="py-24 relative z-10">
         
         {/* HEADER DA SEÇÃO */}
         <div className="text-center mb-24 space-y-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block"
-          >
-            <h2 className="font-serif text-5xl md:text-6xl text-gray-900 tracking-tight">
-              Destaques Exclusivos
-            </h2>
-            <div className="h-[2px] w-24 bg-yellow-600 mx-auto mt-6" />
-          </motion.div>
+          {shouldDisableAnimations ? (
+            <div className="inline-block">
+              <h2 className="font-serif text-5xl md:text-6xl text-gray-900 tracking-tight">
+                Destaques Exclusivos
+              </h2>
+              <div className="h-[2px] w-24 bg-yellow-600 mx-auto mt-6" />
+            </div>
+          ) : (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block"
+            >
+              <h2 className="font-serif text-5xl md:text-6xl text-gray-900 tracking-tight">
+                Destaques Exclusivos
+              </h2>
+              <div className="h-[2px] w-24 bg-yellow-600 mx-auto mt-6" />
+            </motion.div>
+          )}
           <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light">
             Oportunidades únicas de investimento e moradia com a garantia de excelência.
           </p>
@@ -49,30 +64,33 @@ export const FeaturedProjects: React.FC = () => {
              
              {/* IMAGEM INTERATIVA */}
              <motion.div 
-               initial={{ opacity: 0, x: -50 }}
-               whileInView={{ opacity: 1, x: 0 }}
+               initial={shouldDisableAnimations ? {} : { opacity: 0, x: -50 }}
+               whileInView={shouldDisableAnimations ? {} : { opacity: 1, x: 0 }}
                viewport={{ once: true }}
-               whileHover={{ scale: 1.02 }}
+               whileHover={shouldDisableAnimations ? {} : { scale: 1.02 }}
                transition={{ duration: 0.4 }}
                onClick={() => handleProjectClick('HIT')}
                className="md:col-span-7 relative group cursor-pointer"
              >
-                {/* Glow Dourado */}
-                <div className="absolute -inset-1 bg-yellow-600/0 group-hover:bg-yellow-600/20 blur-xl transition-all duration-500 -z-10" />
+                {/* Glow Dourado - skip on mobile */}
+                {!shouldDisableBlur && (
+                  <div className="absolute -inset-1 bg-yellow-600/0 group-hover:bg-yellow-600/20 blur-xl transition-all duration-500 -z-10" />
+                )}
 
-                <div className="relative h-[500px] md:h-[600px] w-full overflow-hidden shadow-2xl bg-white">
+                <div className={`relative h-[500px] md:h-[600px] w-full overflow-hidden ${shouldDisableBlur ? 'shadow-lg' : 'shadow-2xl'} bg-white`}>
                    <div className="absolute inset-4 border border-white/30 z-20 pointer-events-none" />
                    
                    <img 
                        src="/images/HIT/HITzigzag_main.webp" 
                        alt="HIT Smart Living" 
-                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                       className={`w-full h-full object-cover ${shouldDisableAnimations ? '' : 'transition-transform duration-1000 group-hover:scale-105'}`}
+                       loading="lazy"
                    />
                    
                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all duration-700" />
                    
                    <div className="absolute bottom-8 right-8 opacity-100 md:opacity-0 md:group-hover:opacity-100 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-500">
-                      <span className="bg-white/90 backdrop-blur text-gray-900 px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg">
+                      <span className={`${shouldDisableBlur ? 'bg-white' : 'bg-white/90 backdrop-blur'} text-gray-900 px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-lg`}>
                         Ver Detalhes <ArrowRight size={14} />
                       </span>
                    </div>
@@ -81,8 +99,8 @@ export const FeaturedProjects: React.FC = () => {
 
              {/* TEXTO - HIT */}
              <motion.div 
-               initial={{ opacity: 0, x: 50 }}
-               whileInView={{ opacity: 1, x: 0 }}
+               initial={shouldDisableAnimations ? {} : { opacity: 0, x: 50 }}
+               whileInView={shouldDisableAnimations ? {} : { opacity: 1, x: 0 }}
                viewport={{ once: true }}
                className="md:col-span-5 md:pl-8 space-y-8"
              >

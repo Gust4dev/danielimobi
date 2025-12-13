@@ -3,10 +3,12 @@ import { Section } from './ui/Section';
 import { TESTIMONIALS } from '../constants';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useIsMobile, MOBILE_PERF_CONFIG } from '../hooks/useIsMobile';
 
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const isMobile = useIsMobile();
 
   // Auto-play logic
   useEffect(() => {
@@ -25,12 +27,30 @@ export const Testimonials: React.FC = () => {
 
   const currentTestimonial = TESTIMONIALS[currentIndex];
 
+  // Performance: Use simpler animations on mobile (no blur, shorter duration)
+  const shouldDisableBlur = isMobile && MOBILE_PERF_CONFIG.disableBlur;
+  const animationConfig = shouldDisableBlur
+    ? {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: -20 },
+        transition: { duration: 0.4, ease: "easeOut" }
+      }
+    : {
+        initial: { opacity: 0, filter: "blur(10px)", scale: 0.98 },
+        animate: { opacity: 1, filter: "blur(0px)", scale: 1 },
+        exit: { opacity: 0, filter: "blur(10px)", scale: 1.02 },
+        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
+      };
+
   return (
     // Updated Background: Gradient from subtle gold (amber-50/50 is roughly light gold) to white
     <div className="bg-gradient-to-b from-[#fffaf0] to-white relative overflow-hidden">
       
-      {/* Decorative Background Elements - Adjusted opacity for blend */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-white/40 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-soft-light" />
+      {/* Decorative Background Elements - Disabled blur on mobile */}
+      {!shouldDisableBlur && (
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-white/40 rounded-full blur-3xl -z-0 pointer-events-none mix-blend-soft-light" />
+      )}
       
       <Section id="depoimentos" className="py-24 relative z-10">
         
@@ -70,14 +90,7 @@ export const Testimonials: React.FC = () => {
                         key={currentIndex}
                         // This allows them to stack on top of each other
                         className="col-start-1 row-start-1 text-center space-y-8 w-full"
-                        initial={{ opacity: 0, filter: "blur(10px)", scale: 0.98 }}
-                        animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                        exit={{ opacity: 0, filter: "blur(10px)", scale: 1.02 }}
-                        // Smooth, overlapping transition
-                        transition={{ 
-                            duration: 1.2, 
-                            ease: [0.16, 1, 0.3, 1] 
-                        }} 
+                        {...animationConfig}
                     >
                         {/* Quote Icon */}
                         <div className="flex justify-center">

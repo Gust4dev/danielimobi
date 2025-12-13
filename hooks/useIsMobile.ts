@@ -1,6 +1,23 @@
 import { useState, useEffect } from 'react';
 
 /**
+ * Centralized mobile performance configuration.
+ * Use this to conditionally disable expensive features on mobile.
+ */
+export const MOBILE_PERF_CONFIG = {
+    /** Disable all Framer Motion animations */
+    disableAnimations: true,
+    /** Disable backdrop-blur and filter blur effects */
+    disableBlur: true,
+    /** Disable parallax/scroll-based animations */
+    disableParallax: true,
+    /** Use simpler shadows (shadow-sm instead of shadow-2xl) */
+    reduceShadows: true,
+    /** Maximum number of motion.divs to allow in a single component */
+    maxMotionDivs: 2,
+} as const;
+
+/**
  * Hook to detect if the current device is mobile based on viewport width.
  * Reduces animations and heavy computations on mobile for better performance.
  * 

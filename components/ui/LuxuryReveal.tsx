@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile, MOBILE_PERF_CONFIG } from '../../hooks/useIsMobile';
 
 interface LuxuryRevealProps {
   children: React.ReactNode;
@@ -14,6 +15,18 @@ export const LuxuryReveal: React.FC<LuxuryRevealProps> = ({
   width = "fit-content",
   className = "" 
 }) => {
+  const isMobile = useIsMobile();
+  
+  // Performance: Skip animation entirely on mobile
+  // This removes IntersectionObserver overhead and animation calculations
+  if (isMobile && MOBILE_PERF_CONFIG.disableAnimations) {
+    return (
+      <div style={{ position: "relative", width }} className={className}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <div style={{ position: "relative", width, overflow: "hidden" }} className={className}>
       <motion.div

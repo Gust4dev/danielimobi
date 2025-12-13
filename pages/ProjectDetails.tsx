@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { FEATURED_PROJECTS } from '../constants';
 import { Navbar } from '../components/Navbar';
@@ -11,9 +11,21 @@ import {
   Maximize2, Car, Layers
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
-import { PropertyMap } from '../components/PropertyMap';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useIsMobile } from '../hooks/useIsMobile';
+import { useIsMobile, MOBILE_PERF_CONFIG } from '../hooks/useIsMobile';
+
+// Lazy load PropertyMap - it's heavy and below the fold
+const PropertyMap = lazy(() => import('../components/PropertyMap').then(m => ({ default: m.PropertyMap })));
+
+// Loading fallback for map
+const MapLoader = () => (
+  <div className="h-[450px] w-full flex items-center justify-center bg-gray-900 rounded-xl">
+    <div className="text-center text-gray-400">
+      <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+      <span className="text-sm">Carregando mapa...</span>
+    </div>
+  </div>
+);
 
 export const ProjectDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,15 +34,32 @@ export const ProjectDetails: React.FC = () => {
   
   // Mobile detection for performance
   const isMobile = useIsMobile();
+  const shouldDisableParallax = isMobile && MOBILE_PERF_CONFIG.disableParallax;
   
-  // Scroll & Parallax - only enabled on desktop
+  // Scroll & Parallax - COMPLETELY disabled on mobile
+  // These hooks still run but return static values on mobile
   const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 1000], [0, isMobile ? 0 : 400]);
-  const heroScale = useTransform(scrollY, [0, 1000], [1.1, isMobile ? 1.1 : 1]);
-  const heroOpacity = useTransform(scrollY, [0, 800], [1, isMobile ? 1 : 0]);
   
-  // Use spring only on desktop (springY disabled on mobile for performance)
-  const smoothY = useSpring(heroY, { stiffness: 100, damping: 30 });
+  // On mobile: return static values (no scroll-based calculations)
+  const heroY = useTransform(
+    scrollY, 
+    [0, 1000], 
+    shouldDisableParallax ? [0, 0] : [0, 400]
+  );
+  const heroScale = useTransform(
+    scrollY, 
+    [0, 1000], 
+    shouldDisableParallax ? [1, 1] : [1.1, 1]
+  );
+  const heroOpacity = useTransform(
+    scrollY, 
+    [0, 800], 
+    shouldDisableParallax ? [1, 1] : [1, 0]
+  );
+  
+  // useSpring is expensive - only use on desktop
+  // On mobile, just use heroY directly without spring smoothing
+  const smoothY = shouldDisableParallax ? heroY : useSpring(heroY, { stiffness: 100, damping: 30 });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,17 +78,30 @@ export const ProjectDetails: React.FC = () => {
 
       <div className="relative h-screen w-full overflow-hidden">
 
-        <motion.div 
-          style={{ y: smoothY, scale: heroScale, opacity: heroOpacity }}
-          className="absolute inset-0 z-0"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black z-10" />
-          <img 
-            src={project.mainImage} 
-            alt={project.title} 
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
+        {/* Mobile: Static hero without motion.div for max performance */}
+        {shouldDisableParallax ? (
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black z-10" />
+            <img 
+              src={project.mainImage} 
+              alt={project.title} 
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+        ) : (
+          <motion.div 
+            style={{ y: smoothY, scale: heroScale, opacity: heroOpacity }}
+            className="absolute inset-0 z-0"
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black z-10" />
+            <img 
+              src={project.mainImage} 
+              alt={project.title} 
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        )}
 
 
         <div className="relative z-20 h-full flex flex-col justify-end pb-48 md:pb-40 px-6 md:px-20 max-w-[1920px] mx-auto">
@@ -263,10 +305,12 @@ export const ProjectDetails: React.FC = () => {
             <h2 className="font-serif text-4xl md:text-5xl text-white mb-4">Imóveis na Região</h2>
             <p className="text-gray-400 max-w-2xl">Explore nosso portfólio completo de lançamentos em Anápolis. Clique nos marcadores para ver detalhes de cada empreendimento.</p>
           </div>
-          <PropertyMap 
-            currentPropertyId={project.id} 
-            propertyType="featured" 
-          />
+          <Suspense fallback={<MapLoader />}>
+            <PropertyMap 
+              currentPropertyId={project.id} 
+              propertyType="featured" 
+            />
+          </Suspense>
         </div>
       </section>
 

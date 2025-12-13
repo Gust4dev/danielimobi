@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useIsMobile, MOBILE_PERF_CONFIG } from '../hooks/useIsMobile';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
+  // Performance: Use passive scroll listener
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -44,10 +47,16 @@ export const Navbar: React.FC = () => {
       }
   };
 
+  // Performance: No backdrop-blur on mobile (saves scroll recomposition cost)
+  const shouldDisableBlur = isMobile && MOBILE_PERF_CONFIG.disableBlur;
+  const scrolledClasses = shouldDisableBlur 
+    ? 'bg-white shadow-sm py-4 border-b border-yellow-600' // Solid background for mobile
+    : 'bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-yellow-600'; // Blur for desktop
+
   return (
     <>
       <nav className={`fixed top-0 left-0 w-full z-[10001] transition-[background-color,padding] duration-700 ease-in-out ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-yellow-600' : 'bg-transparent py-4 md:py-8'
+        scrolled ? scrolledClasses : 'bg-transparent py-4 md:py-8'
       }`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           
